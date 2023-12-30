@@ -1,2 +1,16 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>akagenorobin</title><link>https://akagenorobin.github.io/</link><description>Recent content on akagenorobin</description><generator>Hugo -- gohugo.io</generator><language>ja</language><atom:link href="https://akagenorobin.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>About Me</title><link>https://akagenorobin.github.io/page/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://akagenorobin.github.io/page/about/</guid><description>半分がテニス、もう半分が音楽、あとの半分がお酒で、残りの半分が物理の、ゆるふわアナログ系エンジニア。アイコンは @yahei2021 さん作です。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>akagenorobin</title><link>https://akagenorobin.github.io/</link><description>Recent content on akagenorobin</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Wed, 27 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://akagenorobin.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>MAU・DAU・ヘビーユーザ数の関係性を考察してみた</title><link>https://akagenorobin.github.io/post/2023-12-27/</link><pubDate>Wed, 27 Dec 2023 00:00:00 +0000</pubDate><guid>https://akagenorobin.github.io/post/2023-12-27/</guid><description>問題設定 あるサービスの月間のユーザ数(= MAU)を N 、1日のユーザ数(= DAU)を M とする。 このサービスを月間20日以上利用しているユーザ数（= ヘビーユーザ数）は？
+という問題を考察したのでメモ。
+考察 MAU に含まれるユーザで1ヶ月（30日としておく）のうち x 日利用する人の割合を P(x) とおく。 求めたいのは
+$$\sum_{x=20}^{30} NP(x)$$
+である。DAU に含まれるユーザで1ヶ月のうち x 日利用する人の数は
+$$NP(x) \times \frac{x}{30}$$
+よって DAU は
+$$M = \sum_{x=1}^{30} NP(x) \times \frac{x}{30}$$
+と表せて、ここから1ユーザあたりの利用日数の期待値が
+$$E[x] = \sum_{x=1}^{30} xP(x) = 30\frac{M}{N} = 30R$$
+となることがわかる（ただし R = M/N とおいた）。 これ割と非自明な結果だと思ったんですが自明ですかね🤔 （例えば DAU と MAU の比率が 1:4 だったら1ユーザが1ヶ月に利用する期間の期待値が1週間ということ）
+というわけで、 DAU と MAU の値からは分布の期待値しか決まらないことがわかったので、ヘビーユーザの数を推定するには分布を仮定する必要がある。 簡単のために指数分布
+$$P(x)=\lambda e^{-\lambda x}$$
+を仮定しよう。指数分布の期待値は
+$$E[x]=\frac{1}{\lambda}$$</description></item><item><title>About Me</title><link>https://akagenorobin.github.io/page/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://akagenorobin.github.io/page/about/</guid><description>半分がテニス、もう半分が音楽、あとの半分がお酒で、残りの半分が物理の、ゆるふわアナログ系エンジニア。アイコンは @yahei2021 さん作です。
 my history あいうえお</description></item></channel></rss>
