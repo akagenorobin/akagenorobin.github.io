@@ -3,17 +3,18 @@ title = 'akagenorobin'
 theme = 'beautifulhugo'
 DefaultContentLanguage = 'ja'
 
-pygmentsStyle = 'trac'
-pygmentsUseClasses = true
-pygmentsCodeFences = true
-pygmentsCodefencesGuessSyntax = true
+# pygmentsStyle = 'trac'
+# pygmentsUseClasses = true
+# pygmentsCodeFences = true
+# pygmentsCodefencesGuessSyntax = true
 # pygmentsUseClassic = true
 # pygmentOptions = 'linenos=inline'
 # disqusShortname = 'XXX'
+
 googleAnalytics = 'G-EDWGH20LXB'
 
 [Params]
-  homeTitle = 'Blog' # Set a different text for the header on the home page
+  homeTitle = 'akagenorobin' # Set a different text for the header on the home page
   # subtitle = 'akagenorobin のポートフォリオサイトです'
   mainSections = ['post']
   logo = 'img/avatar-icon.png' # Expecting square dimensions
