@@ -86,7 +86,7 @@ googleAnalytics = 'G-EDWGH20LXB'
 
 [[menu.main]]
   name = 'About'
-  url = 'page/about/'
+  url = 'about/'
   weight = 2
 
 # [[menu.main]]
