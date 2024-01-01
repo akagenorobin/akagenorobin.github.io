@@ -1,5 +1,7 @@
 # akagenorobin.github.io
 
+https://akagenorobin.github.io/
+
 ## 利用パッケージ
 
 https://github.com/gohugoio/hugo
