@@ -69,7 +69,7 @@ comments: false
 * チームビルディング
   * 自分がリーダーをやる際は各メンバーが能動的にやりたいことができるような環境を目指します
   * マネージャーはやりたい訳ではないけど、消去法で得意かなと思っています
-  * ただし受動的なメンバーを積極的に指導したりはせず、見捨てがちです
+  * ただし受動的な人を積極的に指導したりはせず、見捨てがちです
   * どちらかと言うとプロデューサーという表現の方がしっくり来ています
 
 ### 参考記事
@@ -81,8 +81,16 @@ comments: false
 
 ### コンテスト
 
-#### ICFPC
+#### ICFP-PC
+
+* 2019年 cirimenjao 37位
+  * [参加記](../post/2019-07-12/)
 
 #### ISUCON
 
-### その他の取り組み
+### その他
+
+* [Sing Band](https://www.youtube.com/@singband5121)
+  * 趣味でやっているアコースティックバンド。鍵盤を弾いています。最近は活動してないです
+* [AWS as a complex system](https://interaxion-podcast.github.io/12)
+  * [おかくん](https://twitter.com/nowohyeah)がやっているポッドキャスト [interaxion](https://interaxion-podcast.github.io/) に呼ばれて出演しました
