@@ -25,7 +25,16 @@ $$E[x] = \sum_{x=1}^{30} xP(x) = 30\frac{M}{N} = 30R$$
 $$P(x)=\lambda e^{-\lambda x}$$
 を仮定しよう。指数分布の期待値は
 $$E[x]=\frac{1}{\lambda}$$
-<a href=https://akagenorobin.github.io/post/2023-12-27/ class=post-read-more>[続きを読む]</a></div></article></div></div></div></div><footer><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><ul class="list-inline text-center footer-links"><li><a href=https://github.com/akagenorobin title=GitHub><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+<a href=https://akagenorobin.github.io/post/2023-12-27/ class=post-read-more>[続きを読む]</a></div></article><article class=post-preview><a href=https://akagenorobin.github.io/post/2019-07-12/><h2 class=post-title>ICFP-PC2019 参加記</h2></a><p class=post-meta><span class=post-meta><i class="fas fa-calendar"></i>&nbsp;2019-07-12に投稿</span></p><div class=post-entry>今年も ICFP-PC に会社のチームで参加したので、参加記を書きます。
+ICFP-PC とは 関数型プログラミング言語の国際学会 ICFP が主催する、チーム人数自由、言語も自由、な72時間耐久のプログラミングコンテストです。 僕は2017年の punter 、2018年の nanobot と参加して、今年が3回目になります。 今年は去年まで主戦力だったチームメイト2人が抜けてしまったため、去年までのチーム名である chirimenjako(ちりめんじゃこ) から h(飛車) と k(角) を抜いた cirimenjao(しりめんじゃお？) として参加しました。
+今年の問題 二次元のマップ上を worker-wrapper というロボットが色を塗っていく、という問題でした。 マップ上にはブースターというアイテムが配置されており、それらを上手く使いこなして短時間で全域を塗りつぶすことが求められています。
+ICFP-PC お馴染みの追加課題では、特定の条件に合うマップを作成するパズルと呼ばれる問題も出題されました。 僕は AI 部分にはあまり関わっていないので、詳細はチームメイトの記事に委ねます。
+作ったもの 出来上がった AI を実行するインフラの作成、現在のランキングを通知する Slackbot の作成、今までのスコアの一覧を見れるようにするダッシュボードの作成、今までのベストスコアの解答を集めて提出するプログラムの作成、なんかをやってました。 色々作れて楽しかった～という感想ですが、割と去年と同じ感じのものを作っていたので、ちゃんと準備しておけばもっと色々やれたんじゃないか、という反省もあります。
+AI 実行環境 以下の様な構成で CI を構築しました。
+流れとしては以下のようになっています。
+AI 開発者が Gitlab に コードを push gitlab-ci がそれを検知し gitlab-runner に投げる gitlab-runner がコードを zip 化し、300問分のタスクをキューに投げる 各ワーカがタスクを処理し結果を S3 に置く キューイングの部分は昨年チームメイトが作ったのを真似して celery と subprocess で書きました。 工夫した点としては
+パイプラインの部分は別のメンバーが作ってくれていたので、 gitlab-runner からはスクリプトを一発実行するだけでタスクが飛ぶようにした celery は json エンコード可能な引数しか渡せない（頑張れば pickle とかも渡せる）のでプログラムは S3 に上げてワーカで落としてくるようにした 元々各タスク内でコンパイルしていたのをワーカ単位で最初の1回のみコンパイルするようにしたら飛躍的に速くなった などです。 普段業務で使い慣れている ElastiCache の redis を celery のバックエンドに使ったら、 AWS の利用料金が $39 くらいになってビビりました（2日目途中くらいに気付いて EC2 に切り替えました）。 下記を参考にしました。
+<a href=https://akagenorobin.github.io/post/2019-07-12/ class=post-read-more>[続きを読む]</a></div></article></div></div></div></div><footer><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><ul class="list-inline text-center footer-links"><li><a href=https://github.com/akagenorobin title=GitHub><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
 <i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li><li><a href=https://gitlab.com/akagenorobin title=GitLab><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
 <i class="fab fa-gitlab fa-stack-1x fa-inverse"></i></span></a></li><li><a href=https://twitter.com/akagenorobin title=Twitter><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
 <i class="fab fa-twitter fa-stack-1x fa-inverse"></i></span></a></li><li><a href=https://www.instagram.com/akagenorobin title=Instagram><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
