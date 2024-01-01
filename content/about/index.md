@@ -95,6 +95,12 @@ comments: false
 
 #### ISUCON
 
+* 2018年 ISUCON 8 予選 chirimenjako-- 99位 (10,129点)
+* 2019年 ISUCON 9 予選 avogad-chan 222位 (3,710点)
+* 2020年 ISUCON 10 予選 aimai-chan 355位 (478点)
+* 2021年 ISUCON 11 予選 newton-kun 272位 (13,616点)
+* 2023年 ISUCON 13 本選 忖度 361位 (6,667点)
+
 ### その他
 
 * [Sing Band](https://www.youtube.com/@singband5121)
