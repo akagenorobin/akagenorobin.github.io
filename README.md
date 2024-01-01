@@ -32,8 +32,8 @@ https://github.com/gohugoio/hugo
     └── beautifulhugo
 ```
 
-記事を追加する場合は post 配下にディレクトリを切る  
-ページを追加したい場合は content 配下にディレクトリを切る
+記事を追加する場合は `content/post` 配下にディレクトリを切る  
+ページを追加する場合は `content` 直下にディレクトリを切る
 
 ## ローカル実行
 
