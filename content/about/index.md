@@ -84,22 +84,34 @@ comments: false
 #### ICFP-PC
 
 * 2017年 chirimenjako 失格
+  * [順位表](https://icfpcontest2017.github.io/post/full-one/)
 * 2018年 chirimenjako 15位
-* 2019年 cirimenjao 37位
+  * [順位表](https://icfpcontest2018.github.io/full/final-standings.html)
+* 2019年 cirimenjao 35位
+  * [順位表](https://icfpcontest2019.github.io/rankings/)
   * [参加記](../post/2019-07-12/)
 * 2020年 cirijako 35位
+  * [順位表](https://icfpcontest2020.github.io/#/scoreboard#final)
 * 2021年 chirijako 6位
+  * [順位表](https://icfpcontest2021.github.io/scoreboard.html)
 * 2022年 chirijako 17位
+  * [順位表](https://icfpcontest2022.github.io/scoreboard/)
   * [参加記](../post/2022-09-20/)
 * 2023年 chirijako 15位
+  * [順位表](https://icfpcontest2023.github.io/)
 
 #### ISUCON
 
 * 2018年 ISUCON 8 予選 chirimenjako-- 99位 (10,129点)
+  * [順位表](https://isucon.net/archives/52467371.html)
 * 2019年 ISUCON 9 予選 avogad-chan 222位 (3,710点)
+  * [順位表](https://isucon.net/archives/53789925.html)
 * 2020年 ISUCON 10 予選 aimai-chan 355位 (478点)
+  * [順位表](https://isucon.net/archives/55008744.html)
 * 2021年 ISUCON 11 予選 newton-kun 272位 (13,616点)
+  * [順位表](https://isucon.net/archives/56021246.html)
 * 2023年 ISUCON 13 本選 忖度 361位 (6,667点)
+  * [順位表](https://isucon.net/archives/57993937.html)
 
 ### その他
 
