@@ -1,0 +1,88 @@
+<!doctype html><html lang=ja itemscope itemtype=http://schema.org/WebPage><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><title>エセ組織論モデルを作ってみた - akagenorobin</title>
+<meta name=description content="新人研修で「エセ組織論モデル」なるものを紹介したので、ここに供養します。
+組織とは 組織とは「ある共通の目的を持った個人の集まり」の意味です。
+つまり個人を構成要素（ミクロ）とした系（マクロ）が組織と捉えて良いでしょう。
+個人の原動力をモデル化する 個人の原動力とはなんでしょう？
+考えやすいように「ある共通の目的」は何らかの社会的な目的としておきましょう。
+社会的な目的を達成するための原動力は 欲求 (needs) です。
+これは適当にマズローの欲求階層説に基づいていることにしときましょう。
+人によって欲求は様々（人の役に立ちたい・有名になりたい・お金が欲しい）なので、多次元量でしょう。
+また、欲求は時間変化するはず、ということで、時間 t の関数として
+$$\vec{n}(t)$$
+と定義しましょう。
+目的を果たすための何らかの活動を始めた場合、大きな原動力になるものがもう1つあります。
+それが 惰性 (inertia) です。
+惰性は一度動き出したものが動き続けるという力で、時間が経てば経つほどその力は強くなります。
+欲求の絶対値 n(t) と惰性 i(t) を図示すると以下の様なイメージです。
+原動力 (driver) は
+$$D_{個人}(t) = n(t) + i(t)$$
+になります。
+組織の原動力をモデル化する 組織が単なる個人の集まりで、個人間の相互作用とか、マネージャーが統制をとるとか、そういうことはない状況を考えましょう。
+欲求は組織を構成する個人のベクトルが揃っていれば原動力はその分大きくなるでしょうし、バラバラだったら原動力は小さくなりそうです。
+惰性は構成人数に比例して大きくなる気がします（？）。
+以上から
+$$D_{組織}(t) = | \sum \vec{n}(t) | + \sum i(t)$$
+です。
+相図を書いてみる 上記のようにモデル化すると、欲求は統計力学で言うところのエネルギーで、惰性はエントロピーのような気分になります。
+そうすると横軸を時間経過、縦軸を組織の構成人数として相図を書きたくなりますね。
+組織の構成人数が多くなるとベクトルのゆらぎは大きくなりそうなので、原動力の欲求成分は相対的に小さくなりそうです。
+そうすると「欲求 ＞ 惰性」相と「惰性 ＞ 欲求」相の境目は以下の様なイメージになります。
+しれっと新しい概念を導入して、時間経過に対して増える構成人数は上限があるだろうということで、存在しない領域を黒塗りしました。
+惰性が欲求を上回るとどうなる？ 僕の経験に基づくと、欲求が原動力になっている組織は成長していけますが、惰性が原動力になっている組織は劣化していきます。
+ここで「惰性 ＞ 欲求」の状態を脱するにはエンジニアリングマネージャーが必要なのだ！という話に繋がっていきます。
+おわりに このモデルの着想は"><meta name=author content="akagenorobin"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"akagenorobin","url":"https:\/\/akagenorobin.github.io"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/akagenorobin.github.io"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/akagenorobin.github.io","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/akagenorobin.github.io\/post\/2023-08-19\/","name":"エセ組織論モデルを作ってみた"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"akagenorobin"},"headline":"エセ組織論モデルを作ってみた","description":"新人研修で「エセ組織論モデル」なるものを紹介したので、ここに供養します。\n組織とは 組織とは「ある共通の目的を持った個人の集まり」の意味です。\nつまり個人を構成要素（ミクロ）とした系（マクロ）が組織と捉えて良いでしょう。\n個人の原動力をモデル化する 個人の原動力とはなんでしょう？\n考えやすいように「ある共通の目的」は何らかの社会的な目的としておきましょう。\n社会的な目的を達成するための原動力は 欲求 (needs) です。\nこれは適当にマズローの欲求階層説に基づいていることにしときましょう。\n人によって欲求は様々（人の役に立ちたい・有名になりたい・お金が欲しい）なので、多次元量でしょう。\nまた、欲求は時間変化するはず、ということで、時間 t の関数として\n$$\\vec{n}(t)$$\nと定義しましょう。\n目的を果たすための何らかの活動を始めた場合、大きな原動力になるものがもう1つあります。\nそれが 惰性 (inertia) です。\n惰性は一度動き出したものが動き続けるという力で、時間が経てば経つほどその力は強くなります。\n欲求の絶対値 n(t) と惰性 i(t) を図示すると以下の様なイメージです。\n原動力 (driver) は\n$$D_{個人}(t) = n(t) \u002b i(t)$$\nになります。\n組織の原動力をモデル化する 組織が単なる個人の集まりで、個人間の相互作用とか、マネージャーが統制をとるとか、そういうことはない状況を考えましょう。\n欲求は組織を構成する個人のベクトルが揃っていれば原動力はその分大きくなるでしょうし、バラバラだったら原動力は小さくなりそうです。\n惰性は構成人数に比例して大きくなる気がします（？）。\n以上から\n$$D_{組織}(t) = | \\sum \\vec{n}(t) | \u002b \\sum i(t)$$\nです。\n相図を書いてみる 上記のようにモデル化すると、欲求は統計力学で言うところのエネルギーで、惰性はエントロピーのような気分になります。\nそうすると横軸を時間経過、縦軸を組織の構成人数として相図を書きたくなりますね。\n組織の構成人数が多くなるとベクトルのゆらぎは大きくなりそうなので、原動力の欲求成分は相対的に小さくなりそうです。\nそうすると「欲求 ＞ 惰性」相と「惰性 ＞ 欲求」相の境目は以下の様なイメージになります。\nしれっと新しい概念を導入して、時間経過に対して増える構成人数は上限があるだろうということで、存在しない領域を黒塗りしました。\n惰性が欲求を上回るとどうなる？ 僕の経験に基づくと、欲求が原動力になっている組織は成長していけますが、惰性が原動力になっている組織は劣化していきます。\nここで「惰性 ＞ 欲求」の状態を脱するにはエンジニアリングマネージャーが必要なのだ！という話に繋がっていきます。\nおわりに このモデルの着想は","inLanguage":"ja","wordCount":74,"datePublished":"2023-08-19T00:00:00","dateModified":"2023-08-19T00:00:00","image":"https:\/\/akagenorobin.github.io\/img\/avatar-icon.png","keywords":[""],"mainEntityOfPage":"https:\/\/akagenorobin.github.io\/post\/2023-08-19\/","publisher":{"@type":"Organization","name":"https:\/\/akagenorobin.github.io","logo":{"@type":"ImageObject","url":"https:\/\/akagenorobin.github.io\/img\/avatar-icon.png","height":60,"width":60}}}</script><meta property="og:title" content="エセ組織論モデルを作ってみた"><meta property="og:description" content="新人研修で「エセ組織論モデル」なるものを紹介したので、ここに供養します。
+組織とは 組織とは「ある共通の目的を持った個人の集まり」の意味です。
+つまり個人を構成要素（ミクロ）とした系（マクロ）が組織と捉えて良いでしょう。
+個人の原動力をモデル化する 個人の原動力とはなんでしょう？
+考えやすいように「ある共通の目的」は何らかの社会的な目的としておきましょう。
+社会的な目的を達成するための原動力は 欲求 (needs) です。
+これは適当にマズローの欲求階層説に基づいていることにしときましょう。
+人によって欲求は様々（人の役に立ちたい・有名になりたい・お金が欲しい）なので、多次元量でしょう。
+また、欲求は時間変化するはず、ということで、時間 t の関数として
+$$\vec{n}(t)$$
+と定義しましょう。
+目的を果たすための何らかの活動を始めた場合、大きな原動力になるものがもう1つあります。
+それが 惰性 (inertia) です。
+惰性は一度動き出したものが動き続けるという力で、時間が経てば経つほどその力は強くなります。
+欲求の絶対値 n(t) と惰性 i(t) を図示すると以下の様なイメージです。
+原動力 (driver) は
+$$D_{個人}(t) = n(t) + i(t)$$
+になります。
+組織の原動力をモデル化する 組織が単なる個人の集まりで、個人間の相互作用とか、マネージャーが統制をとるとか、そういうことはない状況を考えましょう。
+欲求は組織を構成する個人のベクトルが揃っていれば原動力はその分大きくなるでしょうし、バラバラだったら原動力は小さくなりそうです。
+惰性は構成人数に比例して大きくなる気がします（？）。
+以上から
+$$D_{組織}(t) = | \sum \vec{n}(t) | + \sum i(t)$$
+です。
+相図を書いてみる 上記のようにモデル化すると、欲求は統計力学で言うところのエネルギーで、惰性はエントロピーのような気分になります。
+そうすると横軸を時間経過、縦軸を組織の構成人数として相図を書きたくなりますね。
+組織の構成人数が多くなるとベクトルのゆらぎは大きくなりそうなので、原動力の欲求成分は相対的に小さくなりそうです。
+そうすると「欲求 ＞ 惰性」相と「惰性 ＞ 欲求」相の境目は以下の様なイメージになります。
+しれっと新しい概念を導入して、時間経過に対して増える構成人数は上限があるだろうということで、存在しない領域を黒塗りしました。
+惰性が欲求を上回るとどうなる？ 僕の経験に基づくと、欲求が原動力になっている組織は成長していけますが、惰性が原動力になっている組織は劣化していきます。
+ここで「惰性 ＞ 欲求」の状態を脱するにはエンジニアリングマネージャーが必要なのだ！という話に繋がっていきます。
+おわりに このモデルの着想は"><meta property="og:image" content="https://akagenorobin.github.io/img/avatar-icon.png"><meta property="og:url" content="https://akagenorobin.github.io/post/2023-08-19/"><meta property="og:type" content="website"><meta property="og:site_name" content="akagenorobin"><meta name=twitter:title content="エセ組織論モデルを作ってみた"><meta name=twitter:description content="新人研修で「エセ組織論モデル」なるものを紹介したので、ここに供養します。
+組織とは 組織とは「ある共通の目的を持った個人の集まり」の意味です。
+つまり個人を構成要素（ミクロ）とした系（マクロ）が組織と捉えて良いでしょう。
+個人の原動力をモデル化する 個人の原動力とはなんでしょう？
+考えやすいように「ある共通の目的」は何らかの社会的な目的としておきましょう。
+社会的な目的を達成するための原動力は 欲 …"><meta name=twitter:image content="https://akagenorobin.github.io/img/avatar-icon.png"><meta name=twitter:card content="summary_large_image"><meta name=twitter:site content="@akagenorobin"><meta name=twitter:creator content="@akagenorobin"><link href=https://akagenorobin.github.io/img/favicon.ico rel=icon type=image/x-icon><meta name=generator content="Hugo 0.121.1"><link rel=alternate href=https://akagenorobin.github.io/index.xml type=application/rss+xml title=akagenorobin><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css integrity=sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI crossorigin=anonymous><link rel=stylesheet href=https://use.fontawesome.com/releases/v5.5.0/css/all.css integrity=sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css integrity=sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu crossorigin=anonymous><link rel=stylesheet href=https://akagenorobin.github.io/css/main.css><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic"><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"><link rel=stylesheet href=https://akagenorobin.github.io/css/syntax.css><link rel=stylesheet href=https://akagenorobin.github.io/css/codeblock.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css integrity=sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css integrity=sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R crossorigin=anonymous><script async src="https://www.googletagmanager.com/gtag/js?id=G-EDWGH20LXB"></script><script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-EDWGH20LXB",{anonymize_ip:!1})}</script></head><body><nav class="navbar navbar-default navbar-fixed-top navbar-custom"><div class=container-fluid><div class=navbar-header><button type=button class=navbar-toggle data-toggle=collapse data-target=#main-navbar>
+<span class=sr-only>メニューを切り替え</span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+</button>
+<a class=navbar-brand href=https://akagenorobin.github.io>akagenorobin</a></div><div class="collapse navbar-collapse" id=main-navbar><ul class="nav navbar-nav navbar-right"><li><a title=Home href=/>Home</a></li><li><a title=About href=/about>About</a></li></ul></div><div class=avatar-container><div class=avatar-img-border><a title=akagenorobin href=https://akagenorobin.github.io><img class=avatar-img src=https://akagenorobin.github.io/img/avatar-icon.png alt=akagenorobin></a></div></div></div></nav><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><header class=header-section><div class="intro-header no-img"><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><div class=post-heading><h1>エセ組織論モデルを作ってみた</h1><span class=post-meta><i class="fas fa-calendar"></i>&nbsp;2023-08-19に投稿</span></div></div></div></div></div></header><div class=container role=main><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><article role=main class=blog-post><p>新人研修で「エセ組織論モデル」なるものを紹介したので、ここに供養します。</p><h2 id=組織とは>組織とは</h2><p>組織とは「ある共通の目的を持った個人の集まり」の意味です。<br>つまり個人を構成要素（ミクロ）とした系（マクロ）が組織と捉えて良いでしょう。</p><p><img src=./fig_1.png alt></p><h2 id=個人の原動力をモデル化する>個人の原動力をモデル化する</h2><p>個人の原動力とはなんでしょう？<br>考えやすいように「ある共通の目的」は何らかの社会的な目的としておきましょう。</p><p>社会的な目的を達成するための原動力は <strong>欲求</strong> (needs) です。<br>これは適当にマズローの欲求階層説に基づいていることにしときましょう。<br>人によって欲求は様々（人の役に立ちたい・有名になりたい・お金が欲しい）なので、多次元量でしょう。<br>また、欲求は時間変化するはず、ということで、時間 t の関数として</p><p>$$\vec{n}(t)$$</p><p>と定義しましょう。</p><p>目的を果たすための何らかの活動を始めた場合、大きな原動力になるものがもう1つあります。<br>それが <strong>惰性</strong> (inertia) です。<br>惰性は一度動き出したものが動き続けるという力で、時間が経てば経つほどその力は強くなります。</p><p>欲求の絶対値 n(t) と惰性 i(t) を図示すると以下の様なイメージです。</p><p><img src=./fig_2.png alt></p><p>原動力 (driver) は</p><p>$$D_{個人}(t) = n(t) + i(t)$$</p><p>になります。</p><h2 id=組織の原動力をモデル化する>組織の原動力をモデル化する</h2><p>組織が単なる個人の集まりで、個人間の相互作用とか、マネージャーが統制をとるとか、そういうことはない状況を考えましょう。</p><p>欲求は組織を構成する個人のベクトルが揃っていれば原動力はその分大きくなるでしょうし、バラバラだったら原動力は小さくなりそうです。<br>惰性は構成人数に比例して大きくなる気がします（？）。<br>以上から</p><p>$$D_{組織}(t) = | \sum \vec{n}(t) | + \sum i(t)$$</p><p>です。</p><h2 id=相図を書いてみる>相図を書いてみる</h2><p>上記のようにモデル化すると、欲求は統計力学で言うところのエネルギーで、惰性はエントロピーのような気分になります。<br>そうすると横軸を時間経過、縦軸を組織の構成人数として相図を書きたくなりますね。</p><p>組織の構成人数が多くなるとベクトルのゆらぎは大きくなりそうなので、原動力の欲求成分は相対的に小さくなりそうです。<br>そうすると「欲求 ＞ 惰性」相と「惰性 ＞ 欲求」相の境目は以下の様なイメージになります。</p><p><img src=./fig_3.png alt></p><p>しれっと新しい概念を導入して、時間経過に対して増える構成人数は上限があるだろうということで、存在しない領域を黒塗りしました。</p><h2 id=惰性が欲求を上回るとどうなる>惰性が欲求を上回るとどうなる？</h2><p>僕の経験に基づくと、欲求が原動力になっている組織は成長していけますが、惰性が原動力になっている組織は劣化していきます。</p><p><img src=./fig_4.png alt></p><p>ここで「惰性 ＞ 欲求」の状態を脱するにはエンジニアリングマネージャーが必要なのだ！という話に繋がっていきます。</p><h2 id=おわりに>おわりに</h2><p>このモデルの着想は</p><ul><li>組織や個人の原動力って欲求と惰性に分けられるよね</li><li>欲求って統計力学で言うところのエネルギーで、惰性ってエントロピーみたいなもんだよね</li></ul><p>ってことだったんですが、相互作用を入れてないので、統計力学にはなってないし、特に何の面白味もないモデルになってしまいました。</p><p>まあこれはこれで伝えたいことは伝えられたかなと思っているので、良しとしましょう。</p></article><ul class="pager blog-pager"><li class=previous><a href=https://akagenorobin.github.io/post/2022-09-20/ data-toggle=tooltip data-placement=top title="ICFP-PC2022 参加記">&larr; 前ページ</a></li><li class=next><a href=https://akagenorobin.github.io/post/2023-08-21/ data-toggle=tooltip data-placement=top title="PO としての思考を開示してみる">次ページ &rarr;</a></li></ul></div></div></div><footer><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><ul class="list-inline text-center footer-links"><li><a href=https://github.com/akagenorobin title=GitHub><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li><li><a href=https://gitlab.com/akagenorobin title=GitLab><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-gitlab fa-stack-1x fa-inverse"></i></span></a></li><li><a href=https://twitter.com/akagenorobin title=Twitter><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-twitter fa-stack-1x fa-inverse"></i></span></a></li><li><a href=https://www.instagram.com/akagenorobin title=Instagram><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-instagram fa-stack-1x fa-inverse"></i></span></a></li></ul><p class="credits copyright text-muted">akagenorobin
+&nbsp;&bull;&nbsp;&copy;
+2023
+&nbsp;&bull;&nbsp;
+<a href=https://akagenorobin.github.io>akagenorobin</a></p><p class="credits theme-by text-muted"><a href=https://gohugo.io>Hugo v0.121.1</a> powered &nbsp;&bull;&nbsp; Theme <a href=https://github.com/halogenica/beautifulhugo>Beautiful Hugo</a> adapted from <a href=https://deanattali.com/beautiful-jekyll/>Beautiful Jekyll</a></p></div></div></div></footer><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js integrity=sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t crossorigin=anonymous></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js integrity=sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05 crossorigin=anonymous onload=renderMathInElement(document.body)></script><script src=https://code.jquery.com/jquery-3.7.0.slim.min.js integrity=sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js integrity=sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd crossorigin=anonymous></script><script src=https://akagenorobin.github.io/js/main.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js integrity=sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js integrity=sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q crossorigin=anonymous></script><script src=https://akagenorobin.github.io/js/load-photoswipe.js></script></body></html>
