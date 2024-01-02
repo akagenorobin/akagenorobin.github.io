@@ -17,7 +17,7 @@ comments: false
   * 新卒で入社して主にバックエンドの実装・設計・運用を担当
   * 2019年からはエンジニアリングマネージャーとしてチームビルディングに携わっています
   * 2021年にはプロダクトオーナーとして新規サービスの立ち上げを主導
-  * 現在はサービス開発から採用・教育まで幅広く活躍中
+  * 現在もプロダクトオーナーをやりつつ、採用・教育まで幅広く活躍中
 
 ### 利用言語
 
@@ -50,7 +50,7 @@ comments: false
 * 遊び心
   * 「仕事は楽しく遊びは真剣に」をモットーにしています
 * 戦うこと・勝ちにこだわること
-  * 勝敗そのものというよりは、勝つために全力を尽くすこと、また、それに全力を尽くしている人間同士がぶつかり合うこと、は美しいという価値観を持っています
+  * 勝敗そのものというよりは、勝つために全力を尽くすこと、また、そうしている人間同士がぶつかり合うこと、は美しいという価値観を持っています
 * 異質な個性が化学反応して良いものが生まれること
   * チームプレーの魅力はここにあると思っています
 * 一見関係ないと思われる物事を関連付けること
@@ -79,7 +79,19 @@ comments: false
 * [仲介ソリューション本部インタビュー【いい生活 本部インタビュー第3回】](https://note.e-seikatsu.info/n/n3a8a9b6483dd)
   * 2023年に受けたインタビューの記事です
 
-### コンテスト
+### コンテストなど
+
+#### AtCoder
+
+* アカウント： [akagenorobin](https://atcoder.jp/users/akagenorobin)
+
+あんまりやってないです
+
+#### TopCoder
+
+* アカウント： [akagenorobin](https://profiles.topcoder.com/akagenorobin)
+
+大学院のときよくやっていました
 
 #### ICFP-PC
 
@@ -100,6 +112,9 @@ comments: false
 * 2023年 chirijako 15位
   * [順位表](https://icfpcontest2023.github.io/)
 
+ウェブアプリを作ったりメンバーを応援したりする仕事をしています  
+詳しくは参加記参照
+
 #### ISUCON
 
 * 2018年 ISUCON 8 予選 chirimenjako-- 99位 (10,129点)
@@ -113,9 +128,11 @@ comments: false
 * 2023年 ISUCON 13 本選 忖度 361位 (6,667点)
   * [順位表](https://isucon.net/archives/57993937.html)
 
+毎年楽しんで参加していますがあまり良い思い出はないです
+
 ### その他
 
 * [Sing Band](https://www.youtube.com/@singband5121)
   * 趣味でやっているアコースティックバンド。鍵盤を弾いています。最近は活動してないです
 * [AWS as a complex system](https://interaxion-podcast.github.io/12)
-  * [おかくん](https://twitter.com/nowohyeah)がやっているポッドキャスト [interaxion](https://interaxion-podcast.github.io/) に呼ばれて出演しました
+  * [@nowohyeah](https://twitter.com/nowohyeah) くんがやっているポッドキャスト [interaxion](https://interaxion-podcast.github.io/) に呼ばれて出演しました
