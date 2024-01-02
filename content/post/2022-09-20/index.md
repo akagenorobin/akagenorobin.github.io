@@ -3,8 +3,8 @@ title: ICFP-PC2022 参加記
 date: 2022-09-20
 ---
 
-今年も [ICFP-PC](https://icfpcontest2022.github.io/) にチーム chirijako で参加しました。
-実は2017年から参加しているので、今年で6回目になります。
+今年も [ICFP-PC](https://icfpcontest2022.github.io/) にチーム chirijako で参加しました。  
+実は2017年から参加しているので、今年で6回目になります。  
 毎年楽しく参加させていただいています。
 
 ## ICFP-PC とは
