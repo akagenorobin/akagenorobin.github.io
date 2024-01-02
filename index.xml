@@ -1,4 +1,16 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>akagenorobin</title><link>https://akagenorobin.github.io/</link><description>Recent content on akagenorobin</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Wed, 27 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://akagenorobin.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>MAU・DAU・ヘビーユーザ数の関係性を考察してみた</title><link>https://akagenorobin.github.io/post/2023-12-27/</link><pubDate>Wed, 27 Dec 2023 00:00:00 +0000</pubDate><guid>https://akagenorobin.github.io/post/2023-12-27/</guid><description>問題設定 あるサービスの月間のユーザ数(= MAU)を N 、1日のユーザ数(= DAU)を M とする。 このサービスを月間20日以上利用しているユーザ数（= ヘビーユーザ数）は？
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>akagenorobin</title><link>https://akagenorobin.github.io/</link><description>Recent content on akagenorobin</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Tue, 02 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://akagenorobin.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>せっかく個人ブログができたので、ポエムを投稿してみる</title><link>https://akagenorobin.github.io/post/2024-01-02/</link><pubDate>Tue, 02 Jan 2024 00:00:00 +0000</pubDate><guid>https://akagenorobin.github.io/post/2024-01-02/</guid><description>2023年は、色々あったけど、挑戦できた1年だったなーと思っていて、とても良かった。
+2024年は、さらに挑戦すること、そして、結果を出せる1年にしたい。
+年齢的に2〜3歳ぐらいの子供を育てている友人が多いので、旧年中はそのぐらいの年代の子供に会う機会が多かった。
+子供に会って、拙い言語で懸命に自分を表現する様を見ると、ああ、なんて純粋で、無垢で、美しいんだと思う。
+そして、自分もそうでありたい、という気持ちになる。
+人間の美しさ、肉体的にも精神的にも、およそ美に属するものは、無知と迷蒙からしか生まれないね。知っていてなお美しいなどということは許されない。
+というのは三島由紀夫の言葉だ。
+三島にとっての美しさとは若さで、大人になって知識や知性を身に付けると、美しさは失われるという価値観を持っていた、というのはどこかで読んだことがある。
+ただ僕は、この目の前の純粋で、無垢で、美しい存在に、お前はこれから知識や知性を身に付けて、その代償として、その美しさを失うんだぞ、という言葉を放つのは、あまりにも残酷だと感じてしまう。
+肉体の美しさはしょうがない。生きている限り、老いには逆らえない。
+だが心は、いつまでも美しくあって良いはずではないか。
+だから憧れてしまうのだ。たとえ許されずとも、知っていてなお美しいということに。
+子供と相対すると、そんなことを考えてしまう。</description></item><item><title>MAU・DAU・ヘビーユーザ数の関係性を考察してみた</title><link>https://akagenorobin.github.io/post/2023-12-27/</link><pubDate>Wed, 27 Dec 2023 00:00:00 +0000</pubDate><guid>https://akagenorobin.github.io/post/2023-12-27/</guid><description>問題設定 あるサービスの月間のユーザ数(= MAU)を N 、1日のユーザ数(= DAU)を M とする。 このサービスを月間20日以上利用しているユーザ数（= ヘビーユーザ数）は？
 という問題を考察したのでメモ。
 考察 MAU に含まれるユーザで1ヶ月（30日としておく）のうち x 日利用する人の割合を P(x) とおく。 求めたいのは
 $$\sum_{x=20}^{30} NP(x)$$
@@ -70,7 +82,9 @@ $$D_{組織}(t) = | \sum \vec{n}(t) | + \sum i(t)$$
 しれっと新しい概念を導入して、時間経過に対して増える構成人数は上限があるだろうということで、存在しない領域を黒塗りしました。
 惰性が欲求を上回るとどうなる？ 僕の経験に基づくと、欲求が原動力になっている組織は成長していけますが、惰性が原動力になっている組織は劣化していきます。
 ここで「惰性 ＞ 欲求」の状態を脱するにはエンジニアリングマネージャーが必要なのだ！という話に繋がっていきます。
-おわりに このモデルの着想は</description></item><item><title>ICFP-PC2022 参加記</title><link>https://akagenorobin.github.io/post/2022-09-20/</link><pubDate>Tue, 20 Sep 2022 00:00:00 +0000</pubDate><guid>https://akagenorobin.github.io/post/2022-09-20/</guid><description>今年も ICFP-PC にチーム chirijako で参加しました。 実は2017年から参加しているので、今年で6回目になります。 毎年楽しく参加させていただいています。
+おわりに このモデルの着想は</description></item><item><title>ICFP-PC2022 参加記</title><link>https://akagenorobin.github.io/post/2022-09-20/</link><pubDate>Tue, 20 Sep 2022 00:00:00 +0000</pubDate><guid>https://akagenorobin.github.io/post/2022-09-20/</guid><description>今年も ICFP-PC にチーム chirijako で参加しました。
+実は2017年から参加しているので、今年で6回目になります。
+毎年楽しく参加させていただいています。
 ICFP-PC とは 毎年開催されている72時間耐久のプログラミングコンテストです。
 ICFP（国際関数型プログラミング学会）主催のコンテストですが、関数型言語に特化した問題が出るわけではなく、最近は割と普通のマラソンに近いです（過去にはラムダ計算を題材にした問題も出てましたが）。
 一般的なコンテストと違うのは
