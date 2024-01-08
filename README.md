@@ -6,6 +6,20 @@ https://akagenorobin.github.io/
 
 https://github.com/gohugoio/hugo
 
+## git clone
+
+サブモジュールを使っているので `--recursive` を付ける
+
+```
+git clone --recursive
+```
+
+普通に clone してしまった場合は以下を実行する
+
+```
+git submodule update --init --recursive
+```
+
 ## ディレクトリ構成
 
 ```

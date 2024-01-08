@@ -89,6 +89,11 @@ googleAnalytics = 'G-EDWGH20LXB'
   url = 'about'
   weight = 2
 
+[[menu.main]]
+  name = 'Favorite'
+  url = 'favorite'
+  weight = 3
+
 # [[menu.main]]
 #   identifier = 'samples'
 #   name = 'Samples'
