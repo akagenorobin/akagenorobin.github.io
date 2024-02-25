@@ -75,19 +75,20 @@ comments: false
 * 藤原さくら
   * きっかけはドラマ『ラブソング』からで、その後『「かわいい」』を聴いてハマりました。優しくて鋭い歌声がアコースティックによく合います
   * ライブ参戦歴
-    1. 2016/11/24 @ EX THEATER ROPPONGI
-    2. 2017/02/18 @ オーチャードホール
-    3. 2017/07/21 @ 中野サンプラザ
-    4. 2017/12/15 @ duo MUSIC EXCHANGE
-    5. 2018/07/15 @ 日比谷野外大音楽堂
-    6. 2018/10/27 @ 静岡市民文化会館
-    7. 2019/09/27 @ LIQUID ROOM
+    1. 2016/11/24 good morning @ EX THEATER ROPPONGI
+    2. 2017/02/18 藤原さくら Special Live 2017 @ オーチャードホール
+    3. 2017/07/21 PLAY @ 中野サンプラザ
+    4. 2017/12/15 Meet and Meat Tour 2017 @ duo MUSIC EXCHANGE
+    5. 2018/07/15 野外音楽会 2018 @ 日比谷野外大音楽堂
+    6. 2018/10/27 Sakura Fujiwara tour 2018 yellow @ 静岡市民文化会館
+    7. 2019/09/27 藤原さくら Twilight Tour 2019 @ LIQUID ROOM
 * chilldspot
   * 『Monster』を初めて聴いた瞬間からファンです
   * ライブ参戦歴
-    1. 2022/03/05 @ LIQUID ROOM
-    2. 2022/10/26 @ Zepp ダイバーシティ東京
-    3. 2023/06/29 @ LIQUID ROOM
+    1. 2022/03/05 around dusk @ LIQUID ROOM
+    2. 2022/10/26 Road Movie @ Zepp ダイバーシティ東京
+    3. 2023/06/29 Road Map @ LIQUID ROOM
+    4. 2024/02/21 模様 @ Zepp ダイバーシティ東京
 
 ## 文学
 
