@@ -57,8 +57,9 @@ comments: false
     35. 2022/10/12 Love Like Rock Limited vol.2 @ Zepp Haneda
     36. 2023/09/10 Love Like Pop vol.23 @ 名古屋国際会議場
     37. 2024/02/17 Love Like Pop vol.24 @ 横浜アリーナ
+    38. 2024/08/30 Love Like Aloha vol.7 @ サザンビーチちがさき
 * ずっと真夜中でいいのに
-  * 『秒針を噛む』を聴いたときの衝撃は忘れません。鮮やかで純粋で美しい世界観の全てが好き
+  * 鮮やかで純粋で美しい世界観の全てが好き
   * ライブ参戦歴
     1. 2019/04/12 1st LIVE 〜まだまだ偽りでありんす。〜 @ TSUTAYA O-EAST
     2. 2019/10/23 潜潜ツアー(秋の味覚編) @ Zepp Tokyo
@@ -73,7 +74,7 @@ comments: false
     11. 2023/10/14 喫茶・愛のペガサス @ 水戸市民会館
     12. 2023/12/22 喫茶・愛のペガサス @ 東京ガーデンシアター
 * 藤原さくら
-  * きっかけはドラマ『ラブソング』からで、その後『「かわいい」』を聴いてハマりました。優しくて鋭い歌声がアコースティックによく合います
+  * きっかけはドラマ『ラブソング』からで、その後『「かわいい」』を聴いてハマりました
   * ライブ参戦歴
     1. 2016/11/24 good morning @ EX THEATER ROPPONGI
     2. 2017/02/18 藤原さくら Special Live 2017 @ オーチャードホール
@@ -82,6 +83,7 @@ comments: false
     5. 2018/07/15 野外音楽会 2018 @ 日比谷野外大音楽堂
     6. 2018/10/27 Sakura Fujiwara tour 2018 yellow @ 静岡市民文化会館
     7. 2019/09/27 藤原さくら Twilight Tour 2019 @ LIQUID ROOM
+    8. 2024/05/18 Sakura Fujiwara Tour 2024 “wood mood” @ NHKホール
 * chilldspot
   * 『Monster』を初めて聴いた瞬間からファンです
   * ライブ参戦歴
