@@ -111,6 +111,9 @@ comments: false
   * [参加記](../post/2022-09-20/)
 * 2023年 chirijako 15位
   * [順位表](https://icfpcontest2023.github.io/)
+* 2024年 chirijako 21位
+  * [順位表](https://icfpcontest2024.github.io/scoreboard.html)
+  * [参加記](https://note.e-seikatsu.info/n/n141f15f1010c)
 
 ウェブアプリを作ったりメンバーを応援したりする仕事をしています  
 詳しくは参加記参照
