@@ -34,7 +34,7 @@ comments: false
 * Typescript
   * 最近比較的よく触っている言語で、 Lambda ・ Firebase Functions ・ React などを書きます
 * Rust
-  * ちゃんと書けるとは言い難いですが、書いてて楽しいなと思う言語です。主に競技プログラミングで用いています
+  * ちゃんと書けるとは言い難いですが、書いてて楽しいなと思う言語です。競技プログラミングなどで用いています
 
 ### 好きなこと
 
@@ -138,9 +138,11 @@ comments: false
 * 2024年 第一回マスターズ選手権-予選- いっちぃ勉強会-- 84位 (487,331,447点)
   * [順位表](https://atcoder.jp/contests/masters-qual/standings/team)
 
+エンジョイ寄りで参加しています
+
 ### その他
 
 * [Sing Band](https://www.youtube.com/@singband5121)
-  * 趣味でやっているアコースティックバンド。鍵盤を弾いています。最近は活動してないです
+  * 趣味でやっているアコースティックバンドで鍵盤を弾いています。最近は活動してないです
 * [AWS as a complex system](https://interaxion-podcast.github.io/12)
   * [@nowohyeah](https://twitter.com/nowohyeah) くんがやっているポッドキャスト [interaxion](https://interaxion-podcast.github.io/) に呼ばれて出演しました
