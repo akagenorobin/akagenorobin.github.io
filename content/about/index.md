@@ -13,11 +13,45 @@ comments: false
 
 ### 職歴
 
-* 2015年4月〜 [株式会社いい生活](https://www.e-seikatsu.info/)
-  * 新卒で入社して主にバックエンドの実装・設計・運用を担当
-  * 2019年からはエンジニアリングマネージャーとしてチームビルディングに携わっています
-  * 2021年にはプロダクトオーナーとして新規サービスの立ち上げを主導
-  * 現在もプロダクトオーナーをやりつつ、採用・教育まで幅広く活躍中
+* 2015年4月〜 [株式会社いい生活](https://www.e-seikatsu.info/) サービスプラットフォーム開発部所属
+  * 新卒で入社して不動産会社向けサービスのバックエンドの実装・設計・運用を担当
+  * オンプレミスのサーバ上に Python プログラムをデプロイして稼働していました
+  * 利用技術
+    * Python
+      * Flask
+      * SQLAlchemy
+      * Celery
+    * Apache
+    * RabbitMQ
+    * DB
+      * MySQL
+* 2019年11月〜 サービスプラットフォーム開発部 副部長
+  * エンジニアリングマネージャーとしてチームビルディングに従事
+  * チームメンバーのマネジメントに加えて受託案件の調整にも関わりました
+* 2021年4月〜 コミュニケーションプラットフォーム本部 副本部長
+  * バックエンドの運用経験を活かしてプロダクトオーナーとして新規サービスの立ち上げを主導
+  * 利用技術
+    * AWS
+      * EKS
+      * Aurora
+      * Lambda
+      * CDK
+    * GCP
+      * Firebase
+      * Functions
+    * Kubernetes
+    * Docker
+    * Auth0
+    * Typescript
+      * React
+* 2022年4月〜 仲介ソリューション本部 副本部長
+  * プロダクトオーナーをやりつつ、採用・教育まで幅広く活躍
+  * 利用技術
+    * AWS
+      * AppSync
+      * Amplify
+    * Typescript
+      * NextJS
 
 ### 利用言語
 
@@ -25,8 +59,6 @@ comments: false
   * 母語話者です
 * 英語
   * 日常会話レベルです
-* フランス語
-  * 趣味でやっていました。簡単な単語と文法ならわかるレベルです
 * Python
   * プログラミング言語としては最も触った時間が長く、一番流暢に書ける言語です
 * Ruby
@@ -115,9 +147,6 @@ comments: false
   * [順位表](https://icfpcontest2024.github.io/scoreboard.html)
   * [参加記](https://note.e-seikatsu.info/n/n141f15f1010c)
 
-ウェブアプリを作ったりメンバーを応援したりする仕事をしています  
-詳しくは参加記参照
-
 #### ISUCON
 
 * 2018年 ISUCON 8 予選 chirimenjako-- 99位 (10,129点)
@@ -131,14 +160,12 @@ comments: false
 * 2023年 ISUCON 13 本選 忖度 361位 (6,667点)
   * [順位表](https://isucon.net/archives/57993937.html)
 
-毎年楽しんで参加していますがあまり良い思い出はないです
-
 #### Atcoder マスターズ
 
 * 2024年 第一回マスターズ選手権-予選- いっちぃ勉強会-- 84位 (487,331,447点)
   * [順位表](https://atcoder.jp/contests/masters-qual/standings/team)
-
-エンジョイ寄りで参加しています
+* 2025年 第二回マスターズ選手権-予選- いっちぃ勉強会-- 87位 (2,034,377,576点)
+  * [順位表](https://atcoder.jp/contests/masters2025-qual/standings/team)
 
 ### その他
 
