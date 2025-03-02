@@ -13,45 +13,46 @@ comments: false
 
 ### 職歴
 
-* 2015年4月〜 [株式会社いい生活](https://www.e-seikatsu.info/) サービスプラットフォーム開発部所属
-  * 新卒で入社して不動産会社向けサービスのバックエンドの実装・設計・運用を担当
-  * オンプレミスのサーバ上に Python プログラムをデプロイして稼働していました
-  * 利用技術
-    * Python
-      * Flask
-      * SQLAlchemy
-      * Celery
-    * Apache
-    * RabbitMQ
-    * DB
-      * MySQL
-* 2019年11月〜 サービスプラットフォーム開発部 副部長
-  * エンジニアリングマネージャーとしてチームビルディングに従事
-  * チームメンバーのマネジメントに加えて受託案件の調整にも関わりました
-* 2021年4月〜 コミュニケーションプラットフォーム本部 副本部長
-  * バックエンドの運用経験を活かしてプロダクトオーナーとして新規サービスの立ち上げを主導
-  * 利用技術
-    * AWS
-      * EKS
-      * Aurora
-      * Lambda
-      * CDK
-    * GCP
-      * Firebase
-      * Functions
-    * Kubernetes
-    * Docker
-    * Auth0
-    * Typescript
-      * React
-* 2022年4月〜 仲介ソリューション本部 副本部長
-  * プロダクトオーナーをやりつつ、採用・教育まで幅広く活躍
-  * 利用技術
-    * AWS
-      * AppSync
-      * Amplify
-    * Typescript
-      * NextJS
+* 2015年4月〜 [株式会社いい生活](https://www.e-seikatsu.info/)
+  * 2015年4月〜 サービスプラットフォーム開発部 所属
+    * 新卒で入社して不動産会社向けサービスのバックエンドの実装・設計・運用を担当
+    * オンプレミスのサーバ上に Python プログラムをデプロイして稼働していました
+    * 利用技術
+      * Python
+        * Flask
+        * SQLAlchemy
+        * Celery
+      * Apache
+      * RabbitMQ
+      * DB
+        * MySQL
+  * 2019年11月〜 サービスプラットフォーム開発部 副部長
+    * エンジニアリングマネージャーとしてチームビルディングに従事
+    * チームメンバーのマネジメントに加えて受託案件の調整にも関わりました
+  * 2021年4月〜 コミュニケーションプラットフォーム本部 副本部長
+    * バックエンドの運用経験を活かしてプロダクトオーナーとして新規サービスの立ち上げを主導
+    * 利用技術
+      * AWS
+        * EKS
+        * Aurora
+        * Lambda
+        * CDK
+      * GCP
+        * Firebase
+        * Functions
+      * Kubernetes
+      * Docker
+      * Typescript
+        * React
+  * 2022年4月〜 仲介ソリューション本部 副本部長
+    * プロダクトオーナーをやりつつ、採用・教育まで幅広く活躍
+    * 利用技術
+      * AWS
+        * AppSync
+        * Amplify
+        * DynamoDB
+      * Typescript
+        * NextJS
 
 ### 利用言語
 
@@ -115,15 +116,12 @@ comments: false
 
 #### AtCoder
 
-* アカウント： [akagenorobin](https://atcoder.jp/users/akagenorobin)
-
-あんまりやってないです
+[akagenorobin](https://atcoder.jp/users/akagenorobin)
 
 #### TopCoder
 
-* アカウント： [akagenorobin](https://profiles.topcoder.com/akagenorobin)
+[akagenorobin](https://profiles.topcoder.com/akagenorobin)
 
-大学院のときよくやっていました
 
 #### ICFP-PC
 
