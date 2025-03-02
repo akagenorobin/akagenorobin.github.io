@@ -51,7 +51,11 @@ comments: false
         * AppSync
         * Amplify
         * DynamoDB
+        * CloudFront
+        * S3
+        * CDK
       * Typescript
+        * React
         * NextJS
 
 ### 利用言語
