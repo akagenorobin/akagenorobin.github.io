@@ -50,24 +50,25 @@ comments: false
   * React
   * NextJS
 * AWS
-  * EKS
   * Lambda
-  * Aurora
   * AppSync
   * Amplify
   * DynamoDB
+  * CDK
+  * API Gateway
   * CloudFront
   * S3
-  * CDK
+  * EKS
+  * Aurora
 * GCP
   * Firebase
   * Functions
 * ミドルウェア
+  * MySQL
+  * Docker
   * Apache
   * RabbitMQ
-  * MySQL
   * Kubernetes
-  * Docker
 
 ## 好きなこと
 
