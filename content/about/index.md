@@ -3,7 +3,7 @@ title: About Me
 comments: false
 ---
 
-### 学歴
+## 学歴
 
 * 2008年4月〜2012年3月 大阪大学理学部物理学科
 * 2012年4月〜2015年3月 大阪大学大学院理学研究科物理学専攻
@@ -11,52 +11,21 @@ comments: false
   * だらだら研究していたので修士は3年かかりました
   * ざっくり言うと統計物理の数理モデルに関する研究をしていました
 
-### 職歴
+## 職歴
 
-* 2015年4月〜 [株式会社いい生活](https://www.e-seikatsu.info/)
-  * 2015年4月〜 サービスプラットフォーム開発部 所属
+* 2015年4月〜現在 [株式会社いい生活](https://www.e-seikatsu.info/)
+  * 2015年4月〜2019年10月 サービスプラットフォーム開発部 所属
     * 新卒で入社して不動産会社向けサービスのバックエンドの実装・設計・運用を担当
     * オンプレミスのサーバ上に Python プログラムをデプロイして稼働していました
-    * 利用技術
-      * Python
-        * Flask
-        * SQLAlchemy
-        * Celery
-      * Apache
-      * RabbitMQ
-      * DB
-        * MySQL
-  * 2019年11月〜 サービスプラットフォーム開発部 副部長
+  * 2019年11月〜2021年3月 サービスプラットフォーム開発部 副部長
     * エンジニアリングマネージャーとしてチームビルディングに従事
     * チームメンバーのマネジメントに加えて受託案件の調整にも関わりました
-  * 2021年4月〜 コミュニケーションプラットフォーム本部 副本部長
+  * 2021年4月〜2022年3月 コミュニケーションプラットフォーム本部 副本部長
     * バックエンドの運用経験を活かしてプロダクトオーナーとして新規サービスの立ち上げを主導
-    * 利用技術
-      * AWS
-        * EKS
-        * Aurora
-        * Lambda
-        * CDK
-      * GCP
-        * Firebase
-        * Functions
-      * Kubernetes
-      * Docker
-      * Typescript
-        * React
-  * 2022年4月〜 仲介ソリューション本部 副本部長
+  * 2022年4月〜現在 仲介ソリューション本部 副本部長
     * プロダクトオーナーをやりつつ、採用・教育まで幅広く活躍
-    * 利用技術
-      * AWS
-        * AppSync
-        * Amplify
-        * DynamoDB
-        * CloudFront
-        * S3
-        * CDK
-      * Typescript
-        * React
-        * NextJS
+
+## スキル
 
 ### 利用言語
 
@@ -73,7 +42,36 @@ comments: false
 * Rust
   * ちゃんと書けるとは言い難いですが、書いてて楽しいなと思う言語です。競技プログラミングなどで用いています
 
-### 好きなこと
+### フレームワーク等
+
+* Python
+  * Flask
+  * Celery
+  * SQLAlchemy
+* Typescript
+  * React
+  * NextJS
+* AWS
+  * EKS
+  * Lambda
+  * Aurora
+  * AppSync
+  * Amplify
+  * DynamoDB
+  * CloudFront
+  * S3
+  * CDK
+* GCP
+  * Firebase
+  * Functions
+* ミドルウェア
+  * Apache
+  * RabbitMQ
+  * MySQL
+  * Kubernetes
+  * Docker
+
+## 好きなこと
 
 * チームで1つの目的に向かって行動すること
   * 特にメンバーが個々の個性を活かし、それぞれの役割を全うしているようなチームを好みます
@@ -93,7 +91,7 @@ comments: false
 * いわゆる人間らしい有機的な物事
   * 作品そのものよりもその作者の方を好きになりがち
 
-### 得意なこと
+## 得意なこと
 
 * 考えること・多面的なものの見方ができること
   * 特に事象を抽象化して汎化すること、データから推論すること、何かを判断するためのもっともらしいロジックを組み立てること
@@ -103,11 +101,10 @@ comments: false
   * 価値観に優劣を付けないことを基本思想としているのと、フラットに接するので、ある程度人の信頼を得やすいです
 * チームビルディング
   * 自分がリーダーをやる際は各メンバーが能動的にやりたいことができるような環境を目指します
-  * マネージャーはやりたい訳ではないけど、消去法で得意かなと思っています
-  * ただし受動的な人を積極的に指導したりはせず、見捨てがちです
-  * どちらかと言うとプロデューサーという表現の方がしっくり来ています
+  * 受動的な人を積極的に指導したりはせず、見捨てがちです
+  * マネージャーというよりはどちらかと言うとプロデューサーという表現の方がしっくり来ています
 
-### 参考記事
+## 参考記事
 
 * [物理学専攻出身のITエンジニアが、チーム開発にもたらす価値とは？](https://www.wantedly.com/companies/e-seikatsu/post_articles/232935)
   * 2017年に受けたインタビューの記事です
@@ -116,18 +113,18 @@ comments: false
 * [【PO/PdMインタビュー】あらゆる不動産の取引がはじまる場を創る「いい生活Square」](https://note.e-seikatsu.info/n/n6c406862218a)
   * 2024年に受けたインタビューの記事です
 
-### コンテストなど
+## コンテストなど
 
-#### AtCoder
+### AtCoder
 
-[akagenorobin](https://atcoder.jp/users/akagenorobin)
+* [akagenorobin](https://atcoder.jp/users/akagenorobin)
 
-#### TopCoder
+### TopCoder
 
-[akagenorobin](https://profiles.topcoder.com/akagenorobin)
+* [akagenorobin](https://profiles.topcoder.com/akagenorobin)
 
 
-#### ICFP-PC
+### ICFP-PC
 
 * 2017年 chirimenjako 失格
   * [順位表](https://icfpcontest2017.github.io/post/full-one/)
@@ -149,7 +146,7 @@ comments: false
   * [順位表](https://icfpcontest2024.github.io/scoreboard.html)
   * [参加記](https://note.e-seikatsu.info/n/n141f15f1010c)
 
-#### ISUCON
+### ISUCON
 
 * 2018年 ISUCON 8 予選 chirimenjako-- 99位 (10,129点)
   * [順位表](https://isucon.net/archives/52467371.html)
@@ -162,14 +159,14 @@ comments: false
 * 2023年 ISUCON 13 本選 忖度 361位 (6,667点)
   * [順位表](https://isucon.net/archives/57993937.html)
 
-#### Atcoder マスターズ
+### Atcoder マスターズ
 
 * 2024年 第一回マスターズ選手権-予選- いっちぃ勉強会-- 84位 (487,331,447点)
   * [順位表](https://atcoder.jp/contests/masters-qual/standings/team)
 * 2025年 第二回マスターズ選手権-予選- いっちぃ勉強会-- 87位 (2,034,377,576点)
   * [順位表](https://atcoder.jp/contests/masters2025-qual/standings/team)
 
-### その他
+## その他
 
 * [Sing Band](https://www.youtube.com/@singband5121)
   * 趣味でやっているアコースティックバンドで鍵盤を弾いています。最近は活動してないです
