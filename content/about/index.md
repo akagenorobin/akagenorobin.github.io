@@ -146,6 +146,8 @@ comments: false
 * 2024年 chirijako 21位
   * [順位表](https://icfpcontest2024.github.io/scoreboard.html)
   * [参加記](https://note.e-seikatsu.info/n/n141f15f1010c)
+* 2025年 chirijako 27位
+  * [順位表](https://icfpcontest2025.github.io/aedificium.html)
 
 ### ISUCON
 
