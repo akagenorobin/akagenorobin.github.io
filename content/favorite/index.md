@@ -58,6 +58,7 @@ comments: false
     36. 2023/09/10 Love Like Pop vol.23 @ 名古屋国際会議場
     37. 2024/02/17 Love Like Pop vol.24 @ 横浜アリーナ
     38. 2024/08/30 Love Like Aloha vol.7 @ サザンビーチちがさき
+    39. 2026/02/08 Love Like Pop vol.25 @ 水戸市民会館
 * ずっと真夜中でいいのに
   * 鮮やかで純粋で美しい世界観の全てが好きです
   * ライブ参戦歴
