@@ -31,6 +31,7 @@ export const ui = {
     en: 'Tennis, music, literature, drinks, and werewolf',
   },
 
+  sectionWorks: { ja: 'つくっているもの', en: 'What I’m Building' },
   sectionEducation: { ja: '学歴', en: 'Education' },
   sectionCareer: { ja: '職歴', en: 'Career' },
   sectionSkills: { ja: 'スキル', en: 'Skills' },

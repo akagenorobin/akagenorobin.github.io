@@ -19,6 +19,32 @@ export const profile = {
   ],
 };
 
+export type WorkEntry = {
+  name: L;
+  url: string;
+  icon: string;
+  iconAlt: L;
+  status: L;
+  note: L;
+};
+
+export const works: WorkEntry[] = [
+  {
+    name: { ja: 'あかげの人狼', en: 'あかげの人狼 (Akage no Jinro)' },
+    url: 'https://akagenojinro.com',
+    icon: '/img/akagenojinro.png',
+    iconAlt: {
+      ja: 'あかげの人狼のアイコン',
+      en: 'The あかげの人狼 icon',
+    },
+    status: { ja: '開発中', en: 'In development' },
+    note: {
+      ja: '人狼ゲームのサービスを開発しています。',
+      en: 'A werewolf (social deduction) game service I am building.',
+    },
+  },
+];
+
 export type EducationEntry = {
   period: L;
   title: L;

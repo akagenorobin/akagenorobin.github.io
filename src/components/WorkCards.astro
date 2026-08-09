@@ -1,0 +1,123 @@
+---
+export type WorkCardItem = {
+  name: string;
+  url: string;
+  icon: string;
+  iconAlt: string;
+  status: string;
+  note: string;
+};
+
+interface Props {
+  items: WorkCardItem[];
+}
+
+const { items } = Astro.props;
+
+const displayUrl = (url: string) => url.replace(/^https?:\/\//, '').replace(/\/$/, '');
+---
+
+<ul class="works">
+  {
+    items.map((item) => (
+      <li class="reveal">
+        <a class="card work" href={item.url} target="_blank" rel="noopener noreferrer">
+          <img
+            class="work__icon"
+            src={item.icon}
+            alt={item.iconAlt}
+            width="602"
+            height="600"
+            loading="lazy"
+            decoding="async"
+          />
+
+          <div class="work__body">
+            <p class="work__status mono">{item.status}</p>
+            <h3 class="work__name">{item.name}</h3>
+            <p class="work__note muted">{item.note}</p>
+            <p class="work__url mono faint">
+              {displayUrl(item.url)}
+              <span class="work__arrow" aria-hidden="true">↗</span>
+            </p>
+          </div>
+        </a>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .works {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+    gap: 1rem;
+  }
+
+  /* 1枚のときに横へ伸びきらないよう上限を持たせる */
+  .work {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: 1.25rem;
+    height: 100%;
+    max-width: 38rem;
+  }
+
+  .work__icon {
+    width: clamp(4.5rem, 12vw, 6rem);
+    height: auto;
+    border-radius: 18px;
+    border: 1px solid var(--border);
+  }
+
+  .work__body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .work__status {
+    align-self: flex-start;
+    padding: 0.15rem 0.55rem;
+    font-size: 0.66rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-2);
+    border: 1px solid color-mix(in oklab, var(--accent-2) 45%, transparent);
+    border-radius: 999px;
+  }
+
+  .work__name {
+    font-size: 1.25rem;
+  }
+
+  .work__note {
+    font-size: 0.9rem;
+  }
+
+  .work__url {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin-top: 0.15rem;
+    font-size: 0.76rem;
+  }
+
+  .work__arrow {
+    transition: translate 0.25s var(--ease), color 0.25s var(--ease);
+  }
+
+  .work:hover .work__arrow {
+    translate: 2px -2px;
+    color: var(--accent-2);
+  }
+
+  @media (max-width: 30rem) {
+    .work {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+</style>

@@ -7,6 +7,7 @@ import SkillList from '~/components/SkillList.astro';
 import ValueList from '~/components/ValueList.astro';
 import LinkCards from '~/components/LinkCards.astro';
 import ContestTable from '~/components/ContestTable.astro';
+import WorkCards from '~/components/WorkCards.astro';
 import { localePath, type Locale } from '~/i18n/config';
 import { ui } from '~/i18n/ui';
 import {
@@ -21,6 +22,7 @@ import {
   skillGroups,
   spokenLanguages,
   strengths,
+  works,
 } from '~/data/profile';
 
 interface Props {
@@ -71,24 +73,53 @@ const rankLabel = (rank: number | null): string =>
   rank === null ? ui.disqualified[locale] : formatRank(rank);
 
 const currentLabel = locale === 'ja' ? '現職' : 'Current';
+
+const sectionOrder = [
+  'career',
+  'education',
+  'skills',
+  'values',
+  'strengths',
+  'contests',
+  'works',
+  'articles',
+  'other',
+  'favorite',
+] as const;
+
+const eyebrow = (id: (typeof sectionOrder)[number], label: string) =>
+  `${String(sectionOrder.indexOf(id) + 1).padStart(2, '0')} — ${label}`;
+
+const workItems = works.map((work) => ({
+  name: work.name[locale],
+  url: work.url,
+  icon: work.icon,
+  iconAlt: work.iconAlt[locale],
+  status: work.status[locale],
+  note: work.note[locale],
+}));
 ---
 
 <Base locale={locale} title="akagenorobin" description={ui.homeMetaDescription[locale]}>
   <Hero locale={locale} />
 
-  <Section id="career" eyebrow={`01 — ${ui.sectionCareer[locale]}`} title={ui.sectionCareer[locale]}>
+  <Section
+    id="career"
+    eyebrow={eyebrow('career', ui.sectionCareer[locale])}
+    title={ui.sectionCareer[locale]}
+  >
     <Timeline items={careerItems} currentLabel={currentLabel} />
   </Section>
 
   <Section
     id="education"
-    eyebrow={`02 — ${ui.sectionEducation[locale]}`}
+    eyebrow={eyebrow('education', ui.sectionEducation[locale])}
     title={ui.sectionEducation[locale]}
   >
     <Timeline items={educationItems} />
   </Section>
 
-  <Section id="skills" eyebrow={`03 — ${ui.sectionSkills[locale]}`} title={ui.sectionSkills[locale]}>
+  <Section id="skills" eyebrow={eyebrow('skills', ui.sectionSkills[locale])} title={ui.sectionSkills[locale]}>
     <div class="skills-block">
       <h3 class="subhead reveal">{ui.sectionLanguages[locale]}</h3>
       <SkillList items={[...localize(programmingLanguages), ...localize(spokenLanguages)]} />
@@ -113,7 +144,7 @@ const currentLabel = locale === 'ja' ? '現職' : 'Current';
     </div>
   </Section>
 
-  <Section id="values" eyebrow={`04 — ${ui.sectionLikes[locale]}`} title={ui.sectionLikes[locale]}>
+  <Section id="values" eyebrow={eyebrow('values', ui.sectionLikes[locale])} title={ui.sectionLikes[locale]}>
     <ValueList
       items={likes.map((item) => ({
         title: item.title[locale],
@@ -125,7 +156,7 @@ const currentLabel = locale === 'ja' ? '現職' : 'Current';
 
   <Section
     id="strengths"
-    eyebrow={`05 — ${ui.sectionStrengths[locale]}`}
+    eyebrow={eyebrow('strengths', ui.sectionStrengths[locale])}
     title={ui.sectionStrengths[locale]}
   >
     <ValueList
@@ -138,7 +169,7 @@ const currentLabel = locale === 'ja' ? '現職' : 'Current';
 
   <Section
     id="contests"
-    eyebrow={`06 — ${ui.sectionContests[locale]}`}
+    eyebrow={eyebrow('contests', ui.sectionContests[locale])}
     title={ui.sectionContests[locale]}
   >
     <ul class="chips profiles reveal">
@@ -179,20 +210,28 @@ const currentLabel = locale === 'ja' ? '現職' : 'Current';
   </Section>
 
   <Section
+    id="works"
+    eyebrow={eyebrow('works', ui.sectionWorks[locale])}
+    title={ui.sectionWorks[locale]}
+  >
+    <WorkCards items={workItems} />
+  </Section>
+
+  <Section
     id="articles"
-    eyebrow={`07 — ${ui.sectionArticles[locale]}`}
+    eyebrow={eyebrow('articles', ui.sectionArticles[locale])}
     title={ui.sectionArticles[locale]}
   >
     <LinkCards items={articleItems} />
   </Section>
 
-  <Section id="other" eyebrow={`08 — ${ui.sectionOther[locale]}`} title={ui.sectionOther[locale]}>
+  <Section id="other" eyebrow={eyebrow('other', ui.sectionOther[locale])} title={ui.sectionOther[locale]}>
     <LinkCards items={otherItems} />
   </Section>
 
   <Section
     id="favorite"
-    eyebrow={`09 — ${ui.navFavorite[locale]}`}
+    eyebrow={eyebrow('favorite', ui.navFavorite[locale])}
     title={ui.sectionExplore[locale]}
   >
     <div class="reveal">
