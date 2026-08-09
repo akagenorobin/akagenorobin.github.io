@@ -1,0 +1,190 @@
+---
+import { renderInline } from '~/utils/inline';
+
+export type TimelineChild = {
+  period: string;
+  title: string;
+  note: string;
+};
+
+export type TimelineItem = {
+  period: string;
+  title: string;
+  url?: string;
+  current?: boolean;
+  notes?: string[];
+  children?: TimelineChild[];
+};
+
+interface Props {
+  items: TimelineItem[];
+  currentLabel?: string;
+}
+
+const { items, currentLabel } = Astro.props;
+---
+
+<ol class="timeline">
+  {
+    items.map((item) => (
+      <li class="timeline__item reveal">
+        <div class="timeline__marker" aria-hidden="true">
+          <span class:list={['dot', { 'dot--current': item.current }]} />
+        </div>
+
+        <div class="timeline__body">
+          <p class="timeline__period mono faint">{item.period}</p>
+
+          <h3 class="timeline__title">
+            {item.url ? (
+              <a class="link" href={item.url} target="_blank" rel="noopener noreferrer">
+                {item.title}
+              </a>
+            ) : (
+              item.title
+            )}
+            {item.current && currentLabel && <span class="badge">{currentLabel}</span>}
+          </h3>
+
+          {item.notes && item.notes.length > 0 && (
+            <ul class="notes muted">
+              {item.notes.map((note) => (
+                <li set:html={renderInline(note)} />
+              ))}
+            </ul>
+          )}
+
+          {item.children && item.children.length > 0 && (
+            <ul class="roles">
+              {item.children.map((role) => (
+                <li class="role">
+                  <p class="role__period mono faint">{role.period}</p>
+                  <p class="role__title">{role.title}</p>
+                  <p class="role__note muted">{role.note}</p>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      </li>
+    ))
+  }
+</ol>
+
+<style>
+  .timeline {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .timeline__item {
+    display: grid;
+    grid-template-columns: 1.75rem minmax(0, 1fr);
+    gap: 0 1rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .timeline__item:last-child {
+    padding-bottom: 0;
+  }
+
+  .timeline__marker {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding-top: 0.6rem;
+  }
+
+  /* 縦線は最後の項目では途切れさせる */
+  .timeline__item:not(:last-child) .timeline__marker::after {
+    content: '';
+    position: absolute;
+    top: 1.6rem;
+    bottom: -0.6rem;
+    width: 1px;
+    background: linear-gradient(180deg, var(--border-strong), var(--border) 70%, transparent);
+  }
+
+  .dot {
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    background: var(--border-strong);
+  }
+
+  .dot--current {
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    box-shadow: 0 0 0 4px color-mix(in oklab, var(--accent) 18%, transparent);
+  }
+
+  .timeline__period {
+    font-size: 0.76rem;
+    letter-spacing: 0.06em;
+  }
+
+  .timeline__title {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 0.15rem;
+    font-size: 1.1rem;
+  }
+
+  .badge {
+    padding: 0.15rem 0.55rem;
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-2);
+    border: 1px solid color-mix(in oklab, var(--accent-2) 45%, transparent);
+    border-radius: 999px;
+  }
+
+  .notes {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    font-size: 0.92rem;
+  }
+
+  .notes li {
+    position: relative;
+    padding-left: 1rem;
+  }
+
+  .notes li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.85em;
+    width: 0.4rem;
+    height: 1px;
+    background: var(--border-strong);
+  }
+
+  .roles {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    padding-left: 1rem;
+    border-left: 1px solid var(--border);
+  }
+
+  .role__period {
+    font-size: 0.72rem;
+  }
+
+  .role__title {
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+
+  .role__note {
+    font-size: 0.88rem;
+  }
+</style>

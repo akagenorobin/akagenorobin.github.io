@@ -2,57 +2,49 @@
 
 https://akagenorobin.github.io/
 
-## 利用パッケージ
+[Astro](https://astro.build/) で作ったポートフォリオサイト。日本語（`/`）と英語（`/en/`）の2言語構成。
 
-https://github.com/gohugoio/hugo
-
-## git clone
-
-サブモジュールを使っているので `--recursive` を付ける
+## セットアップ
 
 ```
-git clone --recursive
+npm ci
 ```
 
-普通に clone してしまった場合は以下を実行する
+## ローカル実行
 
 ```
-git submodule update --init --recursive
+npm run dev      # http://localhost:4321
+npm run build    # dist/ に静的ファイルを出力
+npm run preview  # ビルド結果を確認
+npm run check    # 型チェック
 ```
 
 ## ディレクトリ構成
 
 ```
 .
-├── README.md
-├── archetypes
-│   └── default.md
-├── content
-│   ├── _index.md
-│   ├── about
-│   │   └── index.md
-│   └── post
-│       └── yyyy-mm-dd
-│           ├── index.md
-│           └── fig_1.png
-├── hugo.toml
-├── i18n
-│   └── ja.yaml
-├── static
-│   ├── css
-│   │   └── main.css
-│   └── img
-│       ├── avatar-icon.png
-│       └── favicon.ico
-└── themes
-    └── beautifulhugo
+├── astro.config.mjs        # i18n ルーティング（ja はプレフィックスなし、en は /en/）と旧 URL の転送
+├── public/                 # そのまま配信される静的ファイル
+│   └── img/
+├── src/
+│   ├── components/         # UI コンポーネント
+│   │   └── pages/          # ページ本体（ja/en 共用。locale を prop で受ける）
+│   ├── data/               # サイトの全コンテンツ（ja/en 併記の構造データ）
+│   │   ├── profile.ts      # 学歴・職歴・スキル・コンテスト参加歴など
+│   │   └── favorite.ts     # 音楽・ライブ参戦歴・文学など
+│   ├── i18n/
+│   │   ├── config.ts       # ロケール定義とパス変換
+│   │   └── ui.ts           # UI 文言
+│   ├── layouts/Base.astro  # <head> ・ヘッダー・フッター・テーマ切替
+│   ├── pages/              # ルーティングのみ（ja: 直下、en: en/ 配下）
+│   └── styles/global.css   # デザイントークンと共通スタイル
+└── .github/workflows/      # main への push で gh-pages ブランチへデプロイ
 ```
 
-記事を追加する場合は `content/post` 配下にディレクトリを切る  
-ページを追加する場合は `content` 直下にディレクトリを切る
+## コンテンツの更新
 
-## ローカル実行
+文章やデータは `src/data/` の TypeScript ファイルに集約している。多言語テキストは
+`{ ja: '…', en: '…' }` の形で持つので、両方を埋めれば両言語に反映される。
 
-```
-hugo server
-```
+ページを追加する場合は `src/components/pages/` に本体を作り、`src/pages/` と
+`src/pages/en/` の両方に `locale` を渡すだけのルートファイルを置く。

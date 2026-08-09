@@ -1,0 +1,57 @@
+---
+import { alternatePath, locales, type Locale } from '~/i18n/config';
+import { ui } from '~/i18n/ui';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const pathname = Astro.url.pathname;
+---
+
+<div class="lang" role="group" aria-label={ui.switchLanguage[locale]}>
+  {
+    locales.map((code) => (
+      <a
+        class:list={['lang__item', { 'is-active': code === locale }]}
+        href={alternatePath(pathname, code)}
+        hreflang={code}
+        aria-current={code === locale ? 'true' : undefined}
+      >
+        {code.toUpperCase()}
+      </a>
+    ))
+  }
+</div>
+
+<style>
+  .lang {
+    display: flex;
+    align-items: center;
+    padding: 2px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+  }
+
+  .lang__item {
+    padding: 0.28rem 0.62rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--text-faint);
+    border-radius: 999px;
+    transition: color 0.25s var(--ease), background 0.25s var(--ease);
+  }
+
+  .lang__item:hover {
+    color: var(--text);
+  }
+
+  .lang__item.is-active {
+    color: var(--accent-contrast);
+    background: linear-gradient(100deg, var(--accent), var(--accent-2));
+  }
+</style>

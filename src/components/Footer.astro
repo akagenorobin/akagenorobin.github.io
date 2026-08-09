@@ -1,0 +1,73 @@
+---
+import type { Locale } from '~/i18n/config';
+import { ui } from '~/i18n/ui';
+import { profile } from '~/data/profile';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="footer__inner wrap">
+    <div class="footer__socials">
+      {
+        profile.socials.map((social) => (
+          <a class="footer__social" href={social.url} target="_blank" rel="me noopener noreferrer">
+            {social.label}
+          </a>
+        ))
+      }
+    </div>
+
+    <p class="footer__meta mono faint">
+      © {year} akagenorobin · {ui.builtWith[locale]}
+    </p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    margin-top: clamp(3rem, 8vw, 6rem);
+    padding-block: 3rem 4rem;
+    border-top: 1px solid var(--border);
+    background: linear-gradient(180deg, transparent, var(--bg-soft));
+  }
+
+  .footer__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .footer__socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 0.5rem;
+  }
+
+  .footer__social {
+    padding: 0.3rem 0.8rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    transition: color 0.25s var(--ease), border-color 0.25s var(--ease),
+      transform 0.25s var(--ease);
+  }
+
+  .footer__social:hover {
+    color: var(--accent-2);
+    border-color: var(--accent-2);
+    transform: translateY(-2px);
+  }
+
+  .footer__meta {
+    font-size: 0.82rem;
+  }
+</style>

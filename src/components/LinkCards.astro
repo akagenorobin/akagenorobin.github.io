@@ -1,0 +1,84 @@
+---
+import { renderInline } from '~/utils/inline';
+
+export type LinkCardItem = {
+  title: string;
+  url: string;
+  note: string;
+  meta?: string;
+};
+
+interface Props {
+  items: LinkCardItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<ul class="cards grid grid--2">
+  {
+    items.map((item) => (
+      <li class="reveal">
+        <div class="card linkcard">
+          {item.meta && <span class="linkcard__meta mono faint">{item.meta}</span>}
+          <h3 class="linkcard__title">
+            <a class="linkcard__anchor" href={item.url} target="_blank" rel="noopener noreferrer">
+              {item.title}
+              <span class="linkcard__arrow" aria-hidden="true">↗</span>
+            </a>
+          </h3>
+          <p class="linkcard__note muted" set:html={renderInline(item.note)} />
+        </div>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .linkcard {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    height: 100%;
+  }
+
+  /* カード全面をクリック領域にする */
+  .linkcard__anchor::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+  }
+
+  /* 本文中のリンクは全面オーバーレイの上に出さないと押せない */
+  .linkcard__note :global(a) {
+    position: relative;
+    z-index: 1;
+  }
+
+  .linkcard__meta {
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+  }
+
+  .linkcard__title {
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .linkcard__arrow {
+    display: inline-block;
+    margin-left: 0.3rem;
+    color: var(--text-faint);
+    transition: translate 0.25s var(--ease), color 0.25s var(--ease);
+  }
+
+  .card:hover .linkcard__arrow {
+    translate: 2px -2px;
+    color: var(--accent-2);
+  }
+
+  .linkcard__note {
+    font-size: 0.87rem;
+  }
+</style>

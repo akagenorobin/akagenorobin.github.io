@@ -1,0 +1,101 @@
+---
+import '~/styles/global.css';
+import Header from '~/components/Header.astro';
+import Footer from '~/components/Footer.astro';
+import { alternatePath, htmlLang, locales, type Locale } from '~/i18n/config';
+import { ui } from '~/i18n/ui';
+
+interface Props {
+  locale: Locale;
+  title: string;
+  description: string;
+}
+
+const { locale, title, description } = Astro.props;
+const pathname = Astro.url.pathname;
+const canonical = new URL(pathname, Astro.site);
+const fullTitle = title === 'akagenorobin' ? 'akagenorobin' : `${title} — akagenorobin`;
+---
+
+<!doctype html>
+<html lang={htmlLang[locale]} data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical.href} />
+    <link rel="icon" href="/img/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="/img/avatar-icon.png" />
+
+    {
+      locales.map((code) => (
+        <link
+          rel="alternate"
+          hreflang={code}
+          href={new URL(alternatePath(pathname, code), Astro.site).href}
+        />
+      ))
+    }
+    <link rel="alternate" hreflang="x-default" href={new URL(alternatePath(pathname, 'ja'), Astro.site).href} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="akagenorobin" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical.href} />
+    <meta property="og:locale" content={locale === 'ja' ? 'ja_JP' : 'en_US'} />
+    <meta property="og:image" content={new URL('/img/avatar-icon.png', Astro.site).href} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:creator" content="@akagenorobin" />
+
+    <!-- テーマは描画前に確定させないと初期表示がちらつく。
+         data-js は「スクロール演出を適用してよい環境か」の判定に使う -->
+    <script is:inline>
+      (() => {
+        const root = document.documentElement;
+        // OS 設定に追従せず、既定はダーク。切り替えた場合だけ localStorage を尊重する
+        root.dataset.theme = localStorage.getItem('theme') ?? 'dark';
+        root.dataset.js = 'true';
+      })();
+    </script>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">{ui.skipToContent[locale]}</a>
+    <Header locale={locale} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer locale={locale} />
+
+    <script>
+      const root = document.documentElement;
+
+      document.querySelector('[data-theme-toggle]')?.addEventListener('click', () => {
+        const next = root.dataset.theme === 'light' ? 'dark' : 'light';
+        root.dataset.theme = next;
+        localStorage.setItem('theme', next);
+      });
+
+      const revealTargets = document.querySelectorAll<HTMLElement>('.reveal');
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (reduceMotion || !('IntersectionObserver' in window)) {
+        revealTargets.forEach((el) => el.classList.add('is-visible'));
+      } else {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (!entry.isIntersecting) continue;
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          },
+          { rootMargin: '0px 0px -8% 0px', threshold: 0.05 },
+        );
+        revealTargets.forEach((el) => observer.observe(el));
+      }
+    </script>
+  </body>
+</html>

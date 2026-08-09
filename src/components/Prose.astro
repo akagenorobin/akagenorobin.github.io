@@ -1,0 +1,27 @@
+---
+interface Props {
+  paragraphs: string[];
+  large?: boolean;
+}
+
+const { paragraphs, large = false } = Astro.props;
+---
+
+<div class:list={['prose', { 'prose--large': large }]}>
+  {paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+</div>
+
+<style>
+  .prose {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    max-width: 44rem;
+    color: var(--text-muted);
+  }
+
+  .prose--large {
+    font-size: clamp(1rem, 1.5vw, 1.1rem);
+    color: var(--text);
+  }
+</style>

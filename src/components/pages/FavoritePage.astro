@@ -1,0 +1,195 @@
+---
+import Base from '~/layouts/Base.astro';
+import Section from '~/components/Section.astro';
+import Prose from '~/components/Prose.astro';
+import LiveHistory from '~/components/LiveHistory.astro';
+import type { Locale } from '~/i18n/config';
+import { ui } from '~/i18n/ui';
+import {
+  alcohol,
+  artists,
+  authors,
+  literature,
+  music,
+  tennis,
+  werewolf,
+} from '~/data/favorite';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+
+// データは追記しやすいよう古い順に持ち、表示だけ新しい順に反転する
+const artistBlocks = artists.map((artist) => ({
+  name: artist.name[locale],
+  subName: artist.subName?.[locale],
+  note: artist.note[locale],
+  lives: artist.lives
+    .map((live) => {
+      const [year, month, day] = live.date.split('-') as [string, string, string];
+      return {
+        date: live.date,
+        year: Number(year),
+        monthDay: `${month}/${day}`,
+        title: live.title,
+        venue: live.venue[locale],
+      };
+    })
+    .reverse(),
+}));
+---
+
+<Base
+  locale={locale}
+  title={ui.navFavorite[locale]}
+  description={ui.favoriteMetaDescription[locale]}
+>
+  <header class="pagehead wrap">
+    <span class="eyebrow">{ui.navFavorite[locale]}</span>
+    <h1 class="pagehead__title">
+      {locale === 'ja' ? '好きなもの' : 'Things I Love'}
+    </h1>
+    <p class="pagehead__lead muted">
+      {
+        locale === 'ja'
+          ? 'テニスと音楽と文学とお酒と人狼ゲーム。仕事の外側にあるものたち。'
+          : 'Tennis, music, literature, drinks, and werewolf — everything outside of work.'
+      }
+    </p>
+  </header>
+
+  <Section id="tennis" eyebrow={`01 — ${ui.sectionTennis[locale]}`} title={ui.sectionTennis[locale]}>
+    <div class="reveal">
+      <Prose paragraphs={tennis.body.map((line) => line[locale])} large />
+    </div>
+  </Section>
+
+  <Section id="music" eyebrow={`02 — ${ui.sectionMusic[locale]}`} title={ui.sectionMusic[locale]}>
+    <div class="reveal">
+      <Prose paragraphs={music.body.map((line) => line[locale])} large />
+    </div>
+
+    <h3 class="subhead reveal">{ui.sectionArtists[locale]}</h3>
+    <ul class="artists grid grid--2">
+      {
+        artistBlocks.map((artist) => (
+          <li>
+            <LiveHistory
+              name={artist.name}
+              subName={artist.subName}
+              note={artist.note}
+              lives={artist.lives}
+              historyLabel={ui.liveHistory[locale]}
+              countLabel={ui.liveCountLabel[locale]}
+            />
+          </li>
+        ))
+      }
+    </ul>
+  </Section>
+
+  <Section
+    id="literature"
+    eyebrow={`03 — ${ui.sectionLiterature[locale]}`}
+    title={ui.sectionLiterature[locale]}
+  >
+    <div class="reveal">
+      <Prose paragraphs={literature.body.map((line) => line[locale])} large />
+    </div>
+
+    <h3 class="subhead reveal">{ui.sectionAuthors[locale]}</h3>
+    <ul class="authors grid grid--2">
+      {
+        authors.map((author) => (
+          <li class="card author reveal">
+            <div class="author__id">
+              <h4 class="author__name">{author.name[locale]}</h4>
+              {author.subName && <p class="author__sub mono faint">{author.subName[locale]}</p>}
+            </div>
+            <p class="author__note muted">{author.note[locale]}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </Section>
+
+  <Section
+    id="alcohol"
+    eyebrow={`04 — ${ui.sectionAlcohol[locale]}`}
+    title={ui.sectionAlcohol[locale]}
+  >
+    <div class="reveal">
+      <Prose paragraphs={alcohol.body.map((line) => line[locale])} large />
+    </div>
+    <ul class="chips drinks reveal">
+      {alcohol.items.map((item) => <li class="chip">{item[locale]}</li>)}
+    </ul>
+  </Section>
+
+  <Section
+    id="werewolf"
+    eyebrow={`05 — ${ui.sectionWerewolf[locale]}`}
+    title={ui.sectionWerewolf[locale]}
+  >
+    <div class="reveal">
+      <Prose paragraphs={werewolf.body.map((line) => line[locale])} large />
+    </div>
+  </Section>
+</Base>
+
+<style>
+  .pagehead {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding-block: clamp(2.5rem, 6vw, 4.5rem) clamp(0.5rem, 1.5vw, 1rem);
+  }
+
+  .pagehead__title {
+    font-size: clamp(2.1rem, 6vw, 3.5rem);
+    letter-spacing: -0.04em;
+  }
+
+  .pagehead__lead {
+    max-width: 40rem;
+  }
+
+  .subhead {
+    margin: 2.5rem 0 1.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent-2);
+  }
+
+  .artists {
+    align-items: start;
+  }
+
+  .author {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .author__name {
+    font-size: 1.05rem;
+  }
+
+  .author__sub {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+  }
+
+  .author__note {
+    font-size: 0.88rem;
+  }
+
+  .drinks {
+    margin-top: 1.25rem;
+  }
+</style>

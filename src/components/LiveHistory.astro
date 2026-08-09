@@ -1,0 +1,183 @@
+---
+export type LiveRow = {
+  date: string;
+  year: number;
+  monthDay: string;
+  title: string;
+  venue: string;
+};
+
+interface Props {
+  name: string;
+  subName?: string;
+  note: string;
+  lives: LiveRow[];
+  historyLabel: string;
+  countLabel: string;
+}
+
+const { name, subName, note, lives, historyLabel, countLabel } = Astro.props;
+---
+
+<article class="artist card reveal">
+  <header class="artist__head">
+    <div class="artist__id">
+      <h3 class="artist__name">{name}</h3>
+      {subName && <p class="artist__sub mono faint">{subName}</p>}
+    </div>
+    <p class="artist__count mono">
+      <span class="artist__number grad">{lives.length}</span>
+      <span class="faint">{countLabel}</span>
+    </p>
+  </header>
+
+  <p class="artist__note muted">{note}</p>
+
+  <details class="history">
+    <summary class="history__summary">
+      <span>{historyLabel}</span>
+      <span class="history__chevron" aria-hidden="true">＋</span>
+    </summary>
+
+    <ol class="lives">
+      {
+        lives.map((live) => (
+          <li class="live">
+            <time class="live__date mono faint" datetime={live.date}>
+              <span class="live__year">{live.year}</span>
+              <span class="live__md">{live.monthDay}</span>
+            </time>
+            <span class="live__title">{live.title}</span>
+            <span class="live__venue muted">{live.venue}</span>
+          </li>
+        ))
+      }
+    </ol>
+  </details>
+</article>
+
+<style>
+  .artist {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .artist__head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .artist__name {
+    font-size: 1.2rem;
+  }
+
+  .artist__sub {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+  }
+
+  .artist__count {
+    display: flex;
+    align-items: baseline;
+    gap: 0.3rem;
+    white-space: nowrap;
+  }
+
+  .artist__number {
+    font-size: 1.9rem;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .artist__count .faint {
+    font-size: 0.72rem;
+  }
+
+  .artist__note {
+    font-size: 0.9rem;
+  }
+
+  .history {
+    margin-top: 0.35rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .history__summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding-top: 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    cursor: pointer;
+    list-style: none;
+    transition: color 0.25s var(--ease);
+  }
+
+  .history__summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .history__summary:hover {
+    color: var(--text);
+  }
+
+  .history__chevron {
+    transition: rotate 0.3s var(--ease);
+  }
+
+  .history[open] .history__chevron {
+    rotate: 45deg;
+  }
+
+  .lives {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.75rem;
+    max-height: 22rem;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .live {
+    display: grid;
+    grid-template-columns: 5.25rem minmax(0, 1fr);
+    gap: 0.1rem 0.75rem;
+    padding: 0.5rem 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .live:first-child {
+    border-top: 0;
+  }
+
+  .live__date {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.7rem;
+    line-height: 1.4;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .live__year {
+    color: var(--text-muted);
+  }
+
+  .live__title {
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .live__venue {
+    grid-column: 2;
+    font-size: 0.8rem;
+  }
+</style>

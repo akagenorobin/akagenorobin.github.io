@@ -1,0 +1,202 @@
+---
+export type ContestRow = {
+  year: number;
+  team: string;
+  rank: number | null;
+  rankLabel: string;
+  score?: string;
+  label?: string;
+  standings?: string;
+  report?: string;
+};
+
+interface Props {
+  name: string;
+  description: string;
+  rows: ContestRow[];
+  standingsLabel: string;
+  reportLabel: string;
+  entriesLabel: string;
+  bestLabel: string;
+  formatRank: (rank: number) => string;
+}
+
+const {
+  name,
+  description,
+  rows,
+  standingsLabel,
+  reportLabel,
+  entriesLabel,
+  bestLabel,
+  formatRank,
+} = Astro.props;
+
+const best = rows.reduce<number | null>((acc, row) => {
+  if (row.rank === null) return acc;
+  return acc === null || row.rank < acc ? row.rank : acc;
+}, null);
+---
+
+<article class="series reveal">
+  <header class="series__head">
+    <h3 class="series__name">{name}</h3>
+    <p class="series__desc muted">{description}</p>
+    <p class="series__meta mono faint">
+      {rows.length} {entriesLabel}{best !== null && <> · {bestLabel} {formatRank(best)}</>}
+    </p>
+  </header>
+
+  <ol class="rows">
+    {
+      rows.map((row) => (
+        <li class="row">
+          <span class="row__year mono">{row.year}</span>
+
+          <span class="row__main">
+            {row.label && <span class="row__label muted">{row.label}</span>}
+            <span class="row__team mono">{row.team}</span>
+            {row.score && <span class="row__score faint mono">{row.score}</span>}
+          </span>
+
+          <span class:list={['row__rank mono', { 'row__rank--top': row.rank !== null && row.rank <= 20 }]}>
+            {row.rankLabel}
+          </span>
+
+          <span class="row__links">
+            {row.standings && (
+              <a class="row__link" href={row.standings} target="_blank" rel="noopener noreferrer">
+                {standingsLabel}
+              </a>
+            )}
+            {row.report && (
+              <a class="row__link" href={row.report} target="_blank" rel="noopener noreferrer">
+                {reportLabel}
+              </a>
+            )}
+          </span>
+        </li>
+      ))
+    }
+  </ol>
+</article>
+
+<style>
+  .series + :global(.series) {
+    margin-top: 2.5rem;
+  }
+
+  .series__head {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin-bottom: 1rem;
+  }
+
+  .series__name {
+    font-size: 1.25rem;
+  }
+
+  .series__desc {
+    max-width: 44rem;
+    font-size: 0.9rem;
+  }
+
+  .series__meta {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* 列幅は表全体で共有する。行ごとに grid を張ると、
+     リンクが2つある行だけ順位の位置がずれる */
+  .rows {
+    display: grid;
+    grid-template-columns: 3.25rem minmax(0, 1fr) auto auto;
+    border-top: 1px solid var(--border);
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: 1 / -1;
+    align-items: center;
+    gap: 0.5rem 1rem;
+    padding-block: 0.7rem;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.25s var(--ease);
+  }
+
+  .row:hover {
+    background: var(--surface);
+  }
+
+  .row__year {
+    font-size: 0.82rem;
+    color: var(--text-faint);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .row__main {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.25rem 0.6rem;
+    min-width: 0;
+  }
+
+  .row__label {
+    font-size: 0.9rem;
+  }
+
+  .row__team {
+    font-size: 0.8rem;
+    color: var(--accent-2);
+  }
+
+  .row__score {
+    font-size: 0.74rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .row__rank {
+    font-size: 0.88rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    text-align: right;
+  }
+
+  .row__rank--top {
+    color: var(--accent-2);
+  }
+
+  .row__links {
+    display: flex;
+    gap: 0.5rem;
+    white-space: nowrap;
+  }
+
+  .row__link {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-faint);
+    border-bottom: 1px solid transparent;
+    transition: color 0.25s var(--ease), border-color 0.25s var(--ease);
+  }
+
+  .row__link:hover {
+    color: var(--text);
+    border-color: var(--border-strong);
+  }
+
+  @media (max-width: 40rem) {
+    .rows {
+      grid-template-columns: 3rem minmax(0, 1fr) auto;
+    }
+
+    .row__links {
+      grid-column: 2 / -1;
+    }
+  }
+</style>

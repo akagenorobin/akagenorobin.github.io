@@ -1,0 +1,269 @@
+---
+import Base from '~/layouts/Base.astro';
+import Hero from '~/components/Hero.astro';
+import Section from '~/components/Section.astro';
+import Timeline from '~/components/Timeline.astro';
+import SkillList from '~/components/SkillList.astro';
+import ValueList from '~/components/ValueList.astro';
+import LinkCards from '~/components/LinkCards.astro';
+import ContestTable from '~/components/ContestTable.astro';
+import { localePath, type Locale } from '~/i18n/config';
+import { ui } from '~/i18n/ui';
+import {
+  articles,
+  career,
+  contestProfiles,
+  contestSeries,
+  education,
+  likes,
+  others,
+  programmingLanguages,
+  skillGroups,
+  spokenLanguages,
+  strengths,
+} from '~/data/profile';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+
+const careerItems = career.map((entry) => ({
+  period: entry.period[locale],
+  title: entry.org[locale],
+  url: entry.url,
+  current: entry.current,
+  children: entry.roles.map((role) => ({
+    period: role.period[locale],
+    title: role.title[locale],
+    note: role.note[locale],
+  })),
+}));
+
+const educationItems = education.map((entry) => ({
+  period: entry.period[locale],
+  title: entry.title[locale],
+  notes: entry.notes.map((note) => note[locale]),
+}));
+
+const localize = (items: { name: Record<Locale, string>; note: Record<Locale, string> }[]) =>
+  items.map((item) => ({
+    name: item.name[locale],
+    note: item.note[locale],
+  }));
+
+const articleItems = articles.map((article) => ({
+  title: article.title[locale],
+  url: article.url,
+  note: article.note[locale],
+  meta: String(article.year),
+}));
+
+const otherItems = others.map((entry) => ({
+  title: entry.title[locale],
+  url: entry.url,
+  note: entry.note[locale],
+}));
+
+const formatRank = (rank: number): string => (locale === 'ja' ? `${rank}位` : `#${rank}`);
+const rankLabel = (rank: number | null): string =>
+  rank === null ? ui.disqualified[locale] : formatRank(rank);
+
+const currentLabel = locale === 'ja' ? '現職' : 'Current';
+---
+
+<Base locale={locale} title="akagenorobin" description={ui.homeMetaDescription[locale]}>
+  <Hero locale={locale} />
+
+  <Section id="career" eyebrow={`01 — ${ui.sectionCareer[locale]}`} title={ui.sectionCareer[locale]}>
+    <Timeline items={careerItems} currentLabel={currentLabel} />
+  </Section>
+
+  <Section
+    id="education"
+    eyebrow={`02 — ${ui.sectionEducation[locale]}`}
+    title={ui.sectionEducation[locale]}
+  >
+    <Timeline items={educationItems} />
+  </Section>
+
+  <Section id="skills" eyebrow={`03 — ${ui.sectionSkills[locale]}`} title={ui.sectionSkills[locale]}>
+    <div class="skills-block">
+      <h3 class="subhead reveal">{ui.sectionLanguages[locale]}</h3>
+      <SkillList items={[...localize(programmingLanguages), ...localize(spokenLanguages)]} />
+    </div>
+
+    <div class="skills-block">
+      <h3 class="subhead reveal">{ui.sectionStacks[locale]}</h3>
+      <ul class="stacks grid grid--3">
+        {
+          skillGroups.map((group) => (
+            <li class="card stack-card reveal">
+              <h4 class="stack-card__title mono">{group.category[locale]}</h4>
+              <ul class="chips">
+                {group.items.map((item) => (
+                  <li class="chip">{item}</li>
+                ))}
+              </ul>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </Section>
+
+  <Section id="values" eyebrow={`04 — ${ui.sectionLikes[locale]}`} title={ui.sectionLikes[locale]}>
+    <ValueList
+      items={likes.map((item) => ({
+        title: item.title[locale],
+        notes: item.notes.map((note) => note[locale]),
+      }))}
+      numbered
+    />
+  </Section>
+
+  <Section
+    id="strengths"
+    eyebrow={`05 — ${ui.sectionStrengths[locale]}`}
+    title={ui.sectionStrengths[locale]}
+  >
+    <ValueList
+      items={strengths.map((item) => ({
+        title: item.title[locale],
+        notes: item.notes.map((note) => note[locale]),
+      }))}
+    />
+  </Section>
+
+  <Section
+    id="contests"
+    eyebrow={`06 — ${ui.sectionContests[locale]}`}
+    title={ui.sectionContests[locale]}
+  >
+    <ul class="chips profiles reveal">
+      {
+        contestProfiles.map((entry) => (
+          <li>
+            <a class="chip" href={entry.url} target="_blank" rel="noopener noreferrer">
+              {entry.site} / {entry.handle} ↗
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    {
+      contestSeries.map((series) => (
+        <ContestTable
+          name={series.name}
+          description={series.description[locale]}
+          standingsLabel={ui.standings[locale]}
+          reportLabel={ui.report[locale]}
+          entriesLabel={ui.contestEntries[locale]}
+          bestLabel={ui.contestBest[locale]}
+          formatRank={formatRank}
+          rows={series.results.map((result) => ({
+            year: result.year,
+            team: result.team,
+            rank: result.rank,
+            rankLabel: rankLabel(result.rank),
+            score: result.score,
+            label: result.label?.[locale],
+            standings: result.standings,
+            report: result.report,
+          }))}
+        />
+      ))
+    }
+  </Section>
+
+  <Section
+    id="articles"
+    eyebrow={`07 — ${ui.sectionArticles[locale]}`}
+    title={ui.sectionArticles[locale]}
+  >
+    <LinkCards items={articleItems} />
+  </Section>
+
+  <Section id="other" eyebrow={`08 — ${ui.sectionOther[locale]}`} title={ui.sectionOther[locale]}>
+    <LinkCards items={otherItems} />
+  </Section>
+
+  <Section
+    id="favorite"
+    eyebrow={`09 — ${ui.navFavorite[locale]}`}
+    title={ui.sectionExplore[locale]}
+  >
+    <div class="reveal">
+      <a class="card explore__card" href={localePath('/favorite', locale)}>
+        <span class="explore__label">{ui.navFavorite[locale]}</span>
+        <span class="explore__lead muted">{ui.exploreFavoriteLead[locale]}</span>
+        <span class="explore__arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </Section>
+</Base>
+
+<style>
+  .skills-block + .skills-block {
+    margin-top: 3rem;
+  }
+
+  .subhead {
+    margin-bottom: 1.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent-2);
+  }
+
+  .stack-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .stack-card__title {
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+  }
+
+  .profiles {
+    margin-bottom: 2.5rem;
+  }
+
+  .explore__card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 0.2rem 1rem;
+    max-width: 34rem;
+  }
+
+  .explore__label {
+    font-size: 1.15rem;
+    font-weight: 650;
+    letter-spacing: -0.02em;
+  }
+
+  .explore__lead {
+    grid-column: 1;
+    font-size: 0.85rem;
+  }
+
+  .explore__arrow {
+    grid-row: 1 / span 2;
+    grid-column: 2;
+    font-size: 1.1rem;
+    color: var(--text-faint);
+    transition: translate 0.3s var(--ease), color 0.3s var(--ease);
+  }
+
+  .explore__card:hover .explore__arrow {
+    translate: 4px 0;
+    color: var(--accent-2);
+  }
+</style>

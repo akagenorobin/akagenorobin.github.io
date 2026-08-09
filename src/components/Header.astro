@@ -1,0 +1,150 @@
+---
+import LangSwitch from './LangSwitch.astro';
+import ThemeToggle from './ThemeToggle.astro';
+import { localePath, stripLocale, type Locale } from '~/i18n/config';
+import { ui } from '~/i18n/ui';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const current = stripLocale(Astro.url.pathname).replace(/\/$/, '') || '/';
+
+const nav = [
+  { path: '/', label: ui.navHome[locale] },
+  { path: '/favorite', label: ui.navFavorite[locale] },
+];
+---
+
+<header class="header">
+  <div class="header__inner wrap">
+    <a class="brand" href={localePath('/', locale)}>
+      <span class="brand__mark" aria-hidden="true"></span>
+      <span class="brand__name">akagenorobin</span>
+    </a>
+
+    <nav class="nav" aria-label="Main">
+      {
+        nav.map((item) => (
+          <a
+            class:list={['nav__link', { 'is-active': current === item.path }]}
+            href={localePath(item.path, locale)}
+            aria-current={current === item.path ? 'page' : undefined}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="header__tools">
+      <LangSwitch locale={locale} />
+      <ThemeToggle locale={locale} />
+    </div>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: color-mix(in oklab, var(--bg) 78%, transparent);
+    backdrop-filter: blur(14px) saturate(140%);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .header__inner {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-height: 4rem;
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-right: auto;
+    font-weight: 650;
+    letter-spacing: -0.02em;
+  }
+
+  .brand__mark {
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 3px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    box-shadow: 0 0 1.25rem var(--glow);
+  }
+
+  .brand__name {
+    font-family: var(--font-mono);
+    font-size: 0.92rem;
+  }
+
+  .nav {
+    display: flex;
+    gap: 0.25rem;
+  }
+
+  .nav__link {
+    position: relative;
+    padding: 0.4rem 0.75rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    border-radius: 999px;
+    transition: color 0.25s var(--ease), background 0.25s var(--ease);
+  }
+
+  .nav__link:hover {
+    color: var(--text);
+    background: var(--surface-hover);
+  }
+
+  .nav__link.is-active {
+    color: var(--text);
+  }
+
+  .nav__link.is-active::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0.05rem;
+    width: 1.1rem;
+    height: 2px;
+    translate: -50% 0;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  }
+
+  .header__tools {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  @media (max-width: 40rem) {
+    .header__inner {
+      flex-wrap: wrap;
+      gap: 0.5rem 0.75rem;
+      padding-block: 0.6rem;
+    }
+
+    .nav {
+      order: 3;
+      width: 100%;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav__link {
+      white-space: nowrap;
+    }
+  }
+</style>

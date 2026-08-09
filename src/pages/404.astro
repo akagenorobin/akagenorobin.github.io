@@ -1,0 +1,44 @@
+---
+import Base from '~/layouts/Base.astro';
+import { localePath } from '~/i18n/config';
+---
+
+<Base locale="ja" title="404" description="ページが見つかりませんでした。 / Page not found.">
+  <section class="notfound wrap">
+    <span class="notfound__code grad mono">404</span>
+    <h1 class="notfound__title">ページが見つかりませんでした</h1>
+    <p class="muted">Sorry, this page does not exist.</p>
+    <div class="notfound__actions">
+      <a class="btn btn--primary" href={localePath('/', 'ja')}>トップへ戻る</a>
+      <a class="btn btn--ghost" href={localePath('/', 'en')}>Back to home</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .notfound {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding-block: clamp(4rem, 14vw, 9rem);
+  }
+
+  .notfound__code {
+    font-size: clamp(4rem, 16vw, 9rem);
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    line-height: 1;
+  }
+
+  .notfound__title {
+    font-size: clamp(1.4rem, 4vw, 2rem);
+  }
+
+  .notfound__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin-top: 1rem;
+  }
+</style>

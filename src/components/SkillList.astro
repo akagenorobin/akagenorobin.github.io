@@ -1,0 +1,50 @@
+---
+export type SkillItem = {
+  name: string;
+  note: string;
+};
+
+interface Props {
+  items: SkillItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<ul class="skills">
+  {
+    items.map((item) => (
+      <li class="skill reveal">
+        <h4 class="skill__name">{item.name}</h4>
+        <p class="skill__note muted">{item.note}</p>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .skills {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
+    gap: 1.5rem 2.5rem;
+  }
+
+  .skill {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding-left: 0.9rem;
+    border-left: 1px solid var(--border);
+  }
+
+  .skill__name {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  .skill__note {
+    font-size: 0.87rem;
+    line-height: 1.6;
+  }
+</style>

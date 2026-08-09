@@ -1,0 +1,166 @@
+---
+import { localePath, type Locale } from '~/i18n/config';
+import { ui } from '~/i18n/ui';
+import { profile } from '~/data/profile';
+import { renderInline } from '~/utils/inline';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+---
+
+<section class="hero wrap">
+  <div class="hero__body">
+    <span class="eyebrow reveal">{ui.heroEyebrow[locale]}</span>
+
+    <h1 class="hero__title reveal">
+      <span class="hero__hello faint mono">$ whoami</span>
+      <span class="hero__name grad">akagenorobin</span>
+    </h1>
+
+    <p class="hero__role mono reveal">{profile.role[locale]}</p>
+    <p class="hero__tagline reveal">{profile.tagline[locale]}</p>
+    <p class="hero__credit faint reveal" set:html={renderInline(ui.avatarCredit[locale])} />
+
+    <div class="hero__actions reveal">
+      <a class="btn btn--primary" href="#career">
+        {ui.heroCtaAbout[locale]}
+        <span aria-hidden="true">↓</span>
+      </a>
+      <a class="btn btn--ghost" href={localePath('/favorite', locale)}>
+        {ui.heroCtaFavorite[locale]}
+      </a>
+    </div>
+  </div>
+
+  <div class="hero__portrait reveal">
+    <div class="hero__ring" aria-hidden="true"></div>
+    <img
+      src={profile.avatar}
+      alt=""
+      width="220"
+      height="220"
+      fetchpriority="high"
+      decoding="async"
+    />
+  </div>
+
+</section>
+
+<style>
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: clamp(2rem, 5vw, 4rem);
+    padding-block: clamp(3.5rem, 10vw, 8rem) clamp(2.5rem, 6vw, 4.5rem);
+  }
+
+  .hero__body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .hero__title {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .hero__hello {
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+  }
+
+  /* background-clip: text は行ボックスで切り取られるため、
+     line-height を詰めすぎると g の下がりが欠ける */
+  .hero__name {
+    font-size: clamp(2.6rem, 8.5vw, 5.25rem);
+    font-weight: 700;
+    letter-spacing: -0.045em;
+    line-height: 1.2;
+  }
+
+  .hero__role {
+    font-size: 0.85rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent-2);
+  }
+
+  .hero__tagline {
+    max-width: 34rem;
+    font-size: clamp(1rem, 1.6vw, 1.12rem);
+    color: var(--text-muted);
+  }
+
+  .hero__credit {
+    font-size: 0.82rem;
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin-top: 0.75rem;
+  }
+
+  .hero__portrait {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: clamp(9rem, 22vw, 14rem);
+    aspect-ratio: 1;
+  }
+
+  .hero__portrait img {
+    position: relative;
+    width: 82%;
+    height: 82%;
+    border-radius: 50%;
+    object-fit: cover;
+    background: var(--bg-elevated);
+  }
+
+  .hero__ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: conic-gradient(
+      from 140deg,
+      var(--accent),
+      var(--accent-2),
+      var(--accent-3),
+      var(--accent)
+    );
+    filter: blur(0.5px);
+    mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px));
+    animation: spin 14s linear infinite;
+  }
+
+  @keyframes spin {
+    to {
+      rotate: 360deg;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero__ring {
+      animation: none;
+    }
+  }
+
+  @media (max-width: 46rem) {
+    .hero {
+      grid-template-columns: 1fr;
+    }
+
+    .hero__portrait {
+      order: -1;
+    }
+  }
+</style>

@@ -1,0 +1,67 @@
+---
+import type { Locale } from '~/i18n/config';
+import { ui } from '~/i18n/ui';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+---
+
+<button class="theme-toggle" type="button" aria-label={ui.toggleTheme[locale]} data-theme-toggle>
+  <svg class="icon icon--sun" viewBox="0 0 24 24" aria-hidden="true">
+    <circle cx="12" cy="12" r="4.2"></circle>
+    <path d="M12 2.5v2.6M12 18.9v2.6M2.5 12h2.6M18.9 12h2.6M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M18.7 5.3l-1.8 1.8M7.1 16.9l-1.8 1.8"></path>
+  </svg>
+  <svg class="icon icon--moon" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M20.5 14.6A8.6 8.6 0 1 1 9.4 3.5a7 7 0 0 0 11.1 11.1Z"></path>
+  </svg>
+</button>
+
+<style>
+  .theme-toggle {
+    display: grid;
+    place-items: center;
+    width: 2.35rem;
+    height: 2.35rem;
+    padding: 0;
+    color: var(--text-muted);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    cursor: pointer;
+    transition: color 0.25s var(--ease), border-color 0.25s var(--ease);
+  }
+
+  .theme-toggle:hover {
+    color: var(--text);
+    border-color: var(--border-strong);
+  }
+
+  .icon {
+    grid-area: 1 / 1;
+    width: 1.05rem;
+    height: 1.05rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    transition: opacity 0.25s var(--ease), transform 0.35s var(--ease);
+  }
+
+  .icon--sun {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.6);
+  }
+
+  :global(:root[data-theme='light']) .icon--sun {
+    opacity: 1;
+    transform: none;
+  }
+
+  :global(:root[data-theme='light']) .icon--moon {
+    opacity: 0;
+    transform: rotate(90deg) scale(0.6);
+  }
+</style>
