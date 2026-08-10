@@ -6,27 +6,45 @@ export type LinkCardItem = {
   url: string;
   note: string;
   meta?: string;
+  /** 掲載元で非公開になったもの。リンクせずラベルだけ出す */
+  unavailable?: boolean;
 };
 
 interface Props {
   items: LinkCardItem[];
+  unavailableLabel?: string;
 }
 
-const { items } = Astro.props;
+const { items, unavailableLabel } = Astro.props;
 ---
 
 <ul class="cards grid grid--2">
   {
     items.map((item) => (
       <li class="reveal">
-        <div class="card linkcard">
-          {item.meta && <span class="linkcard__meta mono faint">{item.meta}</span>}
+        <div class:list={['card linkcard', { 'linkcard--muted': item.unavailable }]}>
+          {(item.meta || item.unavailable) && (
+            <p class="linkcard__meta">
+              {item.meta && <span class="mono faint">{item.meta}</span>}
+              {item.unavailable && unavailableLabel && (
+                <span class="linkcard__badge mono">{unavailableLabel}</span>
+              )}
+            </p>
+          )}
+
           <h3 class="linkcard__title">
-            <a class="linkcard__anchor" href={item.url} target="_blank" rel="noopener noreferrer">
-              {item.title}
-              <span class="linkcard__arrow" aria-hidden="true">↗</span>
-            </a>
+            {item.unavailable ? (
+              item.title
+            ) : (
+              <a class="linkcard__anchor" href={item.url} target="_blank" rel="noopener noreferrer">
+                {item.title}
+                <span class="linkcard__arrow" aria-hidden="true">
+                  ↗
+                </span>
+              </a>
+            )}
           </h3>
+
           <p class="linkcard__note muted" set:html={renderInline(item.note)} />
         </div>
       </li>
@@ -40,6 +58,15 @@ const { items } = Astro.props;
     flex-direction: column;
     gap: 0.4rem;
     height: 100%;
+  }
+
+  /* 非公開のものは読みに行けないので、控えめに見せる */
+  .linkcard--muted {
+    background: transparent;
+  }
+
+  .linkcard--muted .linkcard__title {
+    color: var(--text-muted);
   }
 
   /* カード全面をクリック領域にする */
@@ -57,8 +84,23 @@ const { items } = Astro.props;
   }
 
   .linkcard__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
     font-size: 0.7rem;
     letter-spacing: 0.14em;
+  }
+
+  .linkcard__badge {
+    padding: 0.1rem 0.5rem;
+    font-size: 0.64rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    border: 1px solid var(--border-strong);
+    border-radius: 999px;
   }
 
   .linkcard__title {

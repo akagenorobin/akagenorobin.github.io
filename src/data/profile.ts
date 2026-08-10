@@ -450,6 +450,8 @@ export type ArticleEntry = {
   url: string;
   note: L;
   year: number;
+  /** 掲載元で非公開になったものはリンクせず、その旨を出す */
+  unavailable?: boolean;
 };
 
 export const articles: ArticleEntry[] = [
@@ -461,6 +463,7 @@ export const articles: ArticleEntry[] = [
     url: 'https://note.e-seikatsu.info/n/ndb4102b6b885',
     note: { ja: '2025年に受けたインタビューの記事です', en: 'An interview from 2025' },
     year: 2025,
+    unavailable: true,
   },
   {
     title: {
@@ -470,6 +473,7 @@ export const articles: ArticleEntry[] = [
     url: 'https://note.e-seikatsu.info/n/n6c406862218a',
     note: { ja: '2024年に受けたインタビューの記事です', en: 'An interview from 2024' },
     year: 2024,
+    unavailable: true,
   },
   {
     title: {
@@ -488,6 +492,7 @@ export const articles: ArticleEntry[] = [
     url: 'https://www.wantedly.com/companies/e-seikatsu/post_articles/232935',
     note: { ja: '2017年に受けたインタビューの記事です', en: 'An interview from 2017' },
     year: 2017,
+    unavailable: true,
   },
 ];
 

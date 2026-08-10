@@ -44,6 +44,7 @@ export const ui = {
   sectionLikes: { ja: '好きなこと', en: 'What I Value' },
   sectionStrengths: { ja: '得意なこと', en: 'Strengths' },
   sectionArticles: { ja: '参考記事', en: 'Interviews & Articles' },
+  articleUnavailable: { ja: '非公開', en: 'No longer public' },
   sectionContests: { ja: 'コンテストなど', en: 'Contests' },
   sectionOther: { ja: 'その他', en: 'Other' },
 

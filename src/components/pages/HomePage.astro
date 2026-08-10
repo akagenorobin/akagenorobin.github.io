@@ -60,6 +60,7 @@ const articleItems = articles.map((article) => ({
   url: article.url,
   note: article.note[locale],
   meta: String(article.year),
+  unavailable: article.unavailable,
 }));
 
 const otherItems = others.map((entry) => ({
@@ -229,7 +230,7 @@ const workItems = works.map((work) => ({
     eyebrow={eyebrow('articles', ui.sectionArticles[locale])}
     title={ui.sectionArticles[locale]}
   >
-    <LinkCards items={articleItems} />
+    <LinkCards items={articleItems} unavailableLabel={ui.articleUnavailable[locale]} />
   </Section>
 
   <Section id="other" eyebrow={eyebrow('other', ui.sectionOther[locale])} title={ui.sectionOther[locale]}>
