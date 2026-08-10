@@ -13,21 +13,28 @@ export type LinkCardItem = {
 interface Props {
   items: LinkCardItem[];
   unavailableLabel?: string;
+  unavailableNote?: string;
 }
 
-const { items, unavailableLabel } = Astro.props;
+const { items, unavailableLabel, unavailableNote } = Astro.props;
 ---
 
 <ul class="cards grid grid--2">
   {
     items.map((item) => (
       <li class="reveal">
-        <div class:list={['card linkcard', { 'linkcard--muted': item.unavailable }]}>
+        <div class:list={['card linkcard', { 'linkcard--unavailable': item.unavailable }]}>
           {(item.meta || item.unavailable) && (
             <p class="linkcard__meta">
               {item.meta && <span class="mono faint">{item.meta}</span>}
               {item.unavailable && unavailableLabel && (
-                <span class="linkcard__badge mono">{unavailableLabel}</span>
+                <span class="linkcard__badge mono">
+                  <svg class="linkcard__lock" viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="4.5" y="10.5" width="15" height="10" rx="2.5" />
+                    <path d="M8 10.5V7.8a4 4 0 0 1 8 0v2.7" />
+                  </svg>
+                  {unavailableLabel}
+                </span>
               )}
             </p>
           )}
@@ -46,6 +53,10 @@ const { items, unavailableLabel } = Astro.props;
           </h3>
 
           <p class="linkcard__note muted" set:html={renderInline(item.note)} />
+
+          {item.unavailable && unavailableNote && (
+            <p class="linkcard__unavailable">{unavailableNote}</p>
+          )}
         </div>
       </li>
     ))
@@ -60,13 +71,23 @@ const { items, unavailableLabel } = Astro.props;
     height: 100%;
   }
 
-  /* 非公開のものは読みに行けないので、控えめに見せる */
-  .linkcard--muted {
+  /* 読みに行けないカードだと一目で分かるよう、枠線を破線にして色も変える */
+  .linkcard--unavailable {
     background: transparent;
+    border-style: dashed;
+    border-color: color-mix(in oklab, var(--accent-3) 35%, transparent);
   }
 
-  .linkcard--muted .linkcard__title {
+  .linkcard--unavailable:hover {
+    background: transparent;
+    border-color: color-mix(in oklab, var(--accent-3) 35%, transparent);
+  }
+
+  .linkcard--unavailable .linkcard__title {
     color: var(--text-muted);
+    text-decoration: line-through;
+    text-decoration-color: color-mix(in oklab, var(--accent-3) 60%, transparent);
+    text-decoration-thickness: 1px;
   }
 
   /* カード全面をクリック領域にする */
@@ -93,14 +114,27 @@ const { items, unavailableLabel } = Astro.props;
   }
 
   .linkcard__badge {
-    padding: 0.1rem 0.5rem;
-    font-size: 0.64rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.15rem 0.55rem;
+    font-size: 0.66rem;
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--text-faint);
-    border: 1px solid var(--border-strong);
+    color: var(--accent-3);
+    background: color-mix(in oklab, var(--accent-3) 12%, transparent);
+    border: 1px solid color-mix(in oklab, var(--accent-3) 45%, transparent);
     border-radius: 999px;
+  }
+
+  .linkcard__lock {
+    width: 0.8em;
+    height: 0.8em;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
   }
 
   .linkcard__title {
@@ -122,5 +156,12 @@ const { items, unavailableLabel } = Astro.props;
 
   .linkcard__note {
     font-size: 0.87rem;
+  }
+
+  .linkcard__unavailable {
+    margin-top: auto;
+    padding-top: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--accent-3);
   }
 </style>

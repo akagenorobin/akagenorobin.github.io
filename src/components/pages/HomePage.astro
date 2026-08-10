@@ -230,7 +230,11 @@ const workItems = works.map((work) => ({
     eyebrow={eyebrow('articles', ui.sectionArticles[locale])}
     title={ui.sectionArticles[locale]}
   >
-    <LinkCards items={articleItems} unavailableLabel={ui.articleUnavailable[locale]} />
+    <LinkCards
+      items={articleItems}
+      unavailableLabel={ui.articleUnavailable[locale]}
+      unavailableNote={ui.articleUnavailableNote[locale]}
+    />
   </Section>
 
   <Section id="other" eyebrow={eyebrow('other', ui.sectionOther[locale])} title={ui.sectionOther[locale]}>

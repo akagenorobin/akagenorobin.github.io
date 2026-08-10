@@ -6,8 +6,8 @@ export const profile = {
     en: 'Half tennis, half music, another half booze, and the remaining half physics — an easygoing, analog-leaning engineer.',
   } satisfies L,
   role: {
-    ja: 'Product Owner / Engineer',
-    en: 'Product Owner / Engineer',
+    ja: 'Software Engineer / Product Owner',
+    en: 'Software Engineer / Product Owner',
   } satisfies L,
   avatar: '/img/avatar-icon.png',
   socials: [
@@ -16,6 +16,7 @@ export const profile = {
     { label: 'Instagram', url: 'https://www.instagram.com/akagenorobin', handle: '@akagenorobin' },
     { label: 'GitLab', url: 'https://gitlab.com/akagenorobin', handle: '@akagenorobin' },
     { label: 'AtCoder', url: 'https://atcoder.jp/users/akagenorobin', handle: '@akagenorobin' },
+    { label: 'YOUTRUST', url: 'https://youtrust.jp/users/akagenorobin', handle: '@akagenorobin' },
   ],
 };
 
@@ -154,7 +155,16 @@ export const career: CareerEntry[] = [
     org: { ja: 'any株式会社', en: 'any, inc.' },
     url: 'https://anyinc.jp/',
     current: true,
-    roles: [],
+    roles: [
+      {
+        period: { ja: '2026年1月 〜 現在', en: 'Jan 2026 – Present' },
+        title: { ja: 'プロダクトチーム', en: 'Product Team' },
+        note: {
+          ja: 'AI ナレッジプラットフォーム Qast の開発に関わっています',
+          en: 'Working on Qast, an AI knowledge platform',
+        },
+      },
+    ],
   },
   {
     period: { ja: '2015年4月 〜 2025年11月', en: 'Apr 2015 – Nov 2025' },

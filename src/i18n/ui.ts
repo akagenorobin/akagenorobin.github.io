@@ -45,6 +45,10 @@ export const ui = {
   sectionStrengths: { ja: '得意なこと', en: 'Strengths' },
   sectionArticles: { ja: '参考記事', en: 'Interviews & Articles' },
   articleUnavailable: { ja: '非公開', en: 'No longer public' },
+  articleUnavailableNote: {
+    ja: '掲載元で非公開になったため読めません',
+    en: 'The publisher has taken this article down, so it can no longer be read.',
+  },
   sectionContests: { ja: 'コンテストなど', en: 'Contests' },
   sectionOther: { ja: 'その他', en: 'Other' },
 
