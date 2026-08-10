@@ -13,7 +13,9 @@ export const tennis = {
 
 export type TennisResult = {
   year: number;
-  event: L;
+  edition: L;
+  /** 出場したチーム名 */
+  team: string;
   result: L;
   /** 大会公式の結果表 (PDF) */
   standings?: string;
@@ -29,26 +31,30 @@ export const tennisTournament = {
   results: [
     {
       year: 2025,
-      event: { ja: '第14回 有栖川公園', en: '14th — Arisugawa Park' },
+      edition: { ja: '第14回', en: '14th' },
+      team: '有栖川公園',
       result: { ja: 'ベスト4', en: 'Semifinals' },
       standings: 'https://www.its-kenpo.or.jp/documents/NEWS/event/kekka/tennis/14fin.pdf',
     },
     {
       year: 2024,
-      event: { ja: '第13回 有栖川公園', en: '13th — Arisugawa Park' },
+      edition: { ja: '第13回', en: '13th' },
+      team: '有栖川公園',
       result: { ja: '決勝リーグ', en: 'Final league' },
       standings: 'https://www.its-kenpo.or.jp/documents/NEWS/event/kekka/tennis/13fin.pdf',
       report: 'https://note.e-seikatsu.info/n/nd6a9c5090b5b',
     },
     {
       year: 2023,
-      event: { ja: '第12回 有栖川公園', en: '12th — Arisugawa Park' },
+      edition: { ja: '第12回', en: '12th' },
+      team: '有栖川公園',
       result: { ja: '予選リーグ', en: 'Group stage' },
       standings: 'https://www.its-kenpo.or.jp/documents/NEWS/event/kekka/tennis/12a.pdf',
     },
     {
       year: 2020,
-      event: { ja: '第10回 有栖川公園', en: '10th — Arisugawa Park' },
+      edition: { ja: '第10回', en: '10th' },
+      team: '有栖川公園',
       result: { ja: '予選リーグ', en: 'Group stage' },
     },
   ] satisfies TennisResult[],

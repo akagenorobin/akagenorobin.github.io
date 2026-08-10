@@ -78,7 +78,8 @@ const artistBlocks = artists.map((artist) => ({
         year: result.year,
         rank: null,
         rankLabel: result.result[locale],
-        label: result.event[locale],
+        label: result.edition[locale],
+        team: result.team,
         standings: result.standings,
         report: result.report ? { href: result.report, external: true } : undefined,
       }))}
