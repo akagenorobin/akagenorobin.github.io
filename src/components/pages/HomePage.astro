@@ -22,6 +22,7 @@ import {
   skillGroups,
   spokenLanguages,
   strengths,
+  supports,
   works,
 } from '~/data/profile';
 
@@ -69,6 +70,12 @@ const otherItems = others.map((entry) => ({
   note: entry.note[locale],
 }));
 
+const supportItems = supports.map((entry) => ({
+  title: entry.name[locale],
+  url: entry.url,
+  note: entry.note[locale],
+}));
+
 const formatRank = (rank: number): string => (locale === 'ja' ? `${rank}位` : `#${rank}`);
 const rankLabel = (rank: number | null): string =>
   rank === null ? ui.disqualified[locale] : formatRank(rank);
@@ -86,6 +93,7 @@ const sectionOrder = [
   'articles',
   'other',
   'favorite',
+  'support',
 ] as const;
 
 const eyebrow = (id: (typeof sectionOrder)[number], label: string) =>
@@ -253,6 +261,14 @@ const workItems = works.map((work) => ({
         <span class="explore__arrow" aria-hidden="true">→</span>
       </a>
     </div>
+  </Section>
+
+  <Section
+    id="support"
+    eyebrow={eyebrow('support', ui.sectionSupport[locale])}
+    title={ui.sectionSupport[locale]}
+  >
+    <LinkCards items={supportItems} />
   </Section>
 </Base>
 

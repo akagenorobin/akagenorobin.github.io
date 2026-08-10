@@ -29,7 +29,12 @@ const description = post.body
   ?.slice(0, 120);
 ---
 
-<Base locale={locale} title={post.data.title} description={description ?? post.data.title}>
+<Base
+  locale={locale}
+  title={post.data.title}
+  description={description ?? post.data.title}
+  publishedTime={post.data.date}
+>
   <article class="post wrap">
     <header class="post__head">
       <p class="post__back">

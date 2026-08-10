@@ -43,6 +43,7 @@ export const ui = {
   sectionStacks: { ja: 'フレームワーク等', en: 'Frameworks & Platforms' },
   sectionLikes: { ja: '好きなこと', en: 'What I Value' },
   sectionStrengths: { ja: '得意なこと', en: 'Strengths' },
+  sectionSupport: { ja: 'サポート', en: 'Support' },
   sectionArticles: { ja: '参考記事', en: 'Interviews & Articles' },
   articleUnavailable: { ja: '非公開', en: 'No longer public' },
   articleUnavailableNote: {
