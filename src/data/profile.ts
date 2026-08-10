@@ -455,24 +455,6 @@ export const strengths: ValueEntry[] = [
   },
 ];
 
-export type SupportEntry = {
-  name: L;
-  url: string;
-  note: L;
-};
-
-/** 応援・支援している団体 */
-export const supports: SupportEntry[] = [
-  {
-    name: { ja: '特定非営利活動法人レイパス', en: 'Raypass (NPO)' },
-    url: 'https://raypass.jp/',
-    note: {
-      ja: '不登校の子どもとその保護者を支えるNPO。大阪・奈良でフリースクール・通信高校のサポート校・訪問支援・ホームスクーリング支援・親の会を運営しています。',
-      en: 'A nonprofit supporting children who are out of school, and their families. In Osaka and Nara they run a free school, a support school for correspondence high schools, outreach visits, homeschooling support, and a parents’ circle.',
-    },
-  },
-];
-
 export type ArticleEntry = {
   title: L;
   url: string;
@@ -714,6 +696,14 @@ export const others: OtherEntry[] = [
     note: {
       ja: '[@nowohyeah](https://twitter.com/nowohyeah) くんがやっているポッドキャスト [interaxion](https://interaxion-podcast.github.io/) に呼ばれて出演しました',
       en: 'I was invited onto [interaxion](https://interaxion-podcast.github.io/), a podcast run by [@nowohyeah](https://twitter.com/nowohyeah)',
+    },
+  },
+  {
+    title: { ja: '特定非営利活動法人レイパス', en: 'Raypass (NPO)' },
+    url: 'https://raypass.jp/',
+    note: {
+      ja: '不登校の子どもとその保護者を支えるNPOをサポートしています。大阪・奈良でフリースクール・通信高校のサポート校・訪問支援・ホームスクーリング支援・親の会を運営している団体です',
+      en: 'I support this nonprofit for children who are out of school and their families. In Osaka and Nara they run a free school, a support school for correspondence high schools, outreach visits, homeschooling support, and a parents’ circle',
     },
   },
 ];
