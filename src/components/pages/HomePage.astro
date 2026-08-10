@@ -204,7 +204,11 @@ const workItems = works.map((work) => ({
             score: result.score,
             label: result.label?.[locale],
             standings: result.standings,
-            report: result.report,
+            report: result.reportPath
+              ? { href: localePath(result.reportPath, locale), external: false }
+              : result.report
+                ? { href: result.report, external: true }
+                : undefined,
           }))}
         />
       ))

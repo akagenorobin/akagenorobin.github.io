@@ -1,0 +1,275 @@
+---
+import { render, type CollectionEntry } from 'astro:content';
+import Base from '~/layouts/Base.astro';
+import { localePath, type Locale } from '~/i18n/config';
+import { ui } from '~/i18n/ui';
+
+interface Props {
+  locale: Locale;
+  post: CollectionEntry<'posts'>;
+}
+
+const { locale, post } = Astro.props;
+const { Content } = await render(post);
+
+const formattedDate = new Intl.DateTimeFormat(locale === 'ja' ? 'ja-JP' : 'en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+}).format(post.data.date);
+
+/** 本文の先頭から description を作る。記法は落として素のテキストにする */
+const description = post.body
+  ?.replace(/!\[[^\]]*\]\([^)]*\)/g, '')
+  .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+  .replace(/[#>*`|~]/g, '')
+  .split('\n')
+  .map((line) => line.trim())
+  .find((line) => line.length > 0)
+  ?.slice(0, 120);
+---
+
+<Base locale={locale} title={post.data.title} description={description ?? post.data.title}>
+  <article class="post wrap">
+    <header class="post__head">
+      <p class="post__back">
+        <a class="link" href={`${localePath('/', locale)}#contests`}>
+          ← {ui.sectionContests[locale]}
+        </a>
+      </p>
+      <time class="post__date mono faint" datetime={post.data.date.toISOString()}>
+        {formattedDate}
+      </time>
+      <h1 class="post__title" lang="ja">{post.data.title}</h1>
+      {
+        locale === 'en' && (
+          <p class="post__notice">This article is written in Japanese.</p>
+        )
+      }
+    </header>
+
+    <div class="post__body" lang="ja">
+      <Content />
+    </div>
+
+    <footer class="post__foot">
+      <a class="btn btn--ghost" href={`${localePath('/', locale)}#contests`}>
+        ← {ui.sectionContests[locale]}
+      </a>
+    </footer>
+  </article>
+</Base>
+
+<style>
+  .post {
+    max-width: 48rem;
+    padding-block: clamp(2.5rem, 6vw, 4.5rem) 0;
+  }
+
+  .post__head {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-bottom: clamp(1.5rem, 4vw, 2.5rem);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .post__back {
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  .post__date {
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+  }
+
+  .post__title {
+    font-size: clamp(1.8rem, 5vw, 2.75rem);
+    letter-spacing: -0.03em;
+  }
+
+  .post__notice {
+    align-self: flex-start;
+    margin-top: 0.5rem;
+    padding: 0.3rem 0.7rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+  }
+
+  .post__foot {
+    margin-top: clamp(2.5rem, 6vw, 4rem);
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+  }
+
+  /* ---------- 本文 (Markdown) ---------- */
+
+  .post__body {
+    padding-top: clamp(1.5rem, 4vw, 2.5rem);
+    line-height: 1.9;
+  }
+
+  .post__body :global(h2) {
+    margin: 2.75rem 0 1rem;
+    padding-top: 1.5rem;
+    font-size: clamp(1.3rem, 3vw, 1.6rem);
+    border-top: 1px solid var(--border);
+  }
+
+  .post__body :global(h3) {
+    margin: 2rem 0 0.75rem;
+    font-size: 1.1rem;
+    color: var(--accent-2);
+  }
+
+  .post__body :global(p) {
+    margin: 1rem 0;
+    color: var(--text-muted);
+  }
+
+  .post__body :global(ul),
+  .post__body :global(ol) {
+    margin: 1rem 0;
+    padding-left: 1.4rem;
+    color: var(--text-muted);
+  }
+
+  .post__body :global(ul) {
+    list-style: none;
+  }
+
+  .post__body :global(ul > li) {
+    position: relative;
+  }
+
+  .post__body :global(ul > li)::before {
+    content: '';
+    position: absolute;
+    left: -1.1rem;
+    top: 0.9em;
+    width: 0.45rem;
+    height: 1px;
+    background: var(--border-strong);
+  }
+
+  .post__body :global(ol) {
+    list-style: decimal;
+  }
+
+  .post__body :global(ol > li)::marker {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    color: var(--text-faint);
+  }
+
+  .post__body :global(li) {
+    margin: 0.3rem 0;
+  }
+
+  .post__body :global(li > ul),
+  .post__body :global(li > ol) {
+    margin: 0.3rem 0;
+  }
+
+  .post__body :global(a) {
+    color: var(--text);
+    border-bottom: 1px solid var(--border-strong);
+    overflow-wrap: anywhere;
+    transition: color 0.25s var(--ease), border-color 0.25s var(--ease);
+  }
+
+  .post__body :global(a:hover) {
+    color: var(--accent-2);
+    border-color: var(--accent-2);
+  }
+
+  .post__body :global(img) {
+    margin: 1.5rem 0;
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    background: var(--bg-soft);
+  }
+
+  .post__body :global(del) {
+    color: var(--text-faint);
+  }
+
+  .post__body :global(code) {
+    padding: 0.1rem 0.35rem;
+    font-family: var(--font-mono);
+    font-size: 0.88em;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+  }
+
+  .post__body :global(pre) {
+    margin: 1.5rem 0;
+    padding: 1rem 1.25rem;
+    overflow-x: auto;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+  }
+
+  .post__body :global(pre code) {
+    padding: 0;
+    background: none;
+    border: 0;
+  }
+
+  /* ページ全体が横スクロールしないよう、テーブル単体でスクロールさせる */
+  .post__body :global(table) {
+    display: block;
+    width: 100%;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+
+  .post__body :global(th),
+  .post__body :global(td) {
+    padding: 0.55rem 0.9rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .post__body :global(th) {
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    border-bottom-color: var(--border-strong);
+  }
+
+  .post__body :global(td) {
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .post__body :global(td img) {
+    margin: 0.5rem 0;
+  }
+
+  .post__body :global(blockquote) {
+    margin: 1.5rem 0;
+    padding-left: 1rem;
+    color: var(--text-faint);
+    border-left: 2px solid var(--border-strong);
+  }
+
+  .post__body :global(hr) {
+    margin: 2.5rem 0;
+    border: 0;
+    border-top: 1px solid var(--border);
+  }
+</style>

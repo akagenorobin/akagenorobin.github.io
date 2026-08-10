@@ -7,7 +7,7 @@ export type ContestRow = {
   score?: string;
   label?: string;
   standings?: string;
-  report?: string;
+  report?: { href: string; external: boolean };
 };
 
 interface Props {
@@ -70,7 +70,12 @@ const best = rows.reduce<number | null>((acc, row) => {
               </a>
             )}
             {row.report && (
-              <a class="row__link" href={row.report} target="_blank" rel="noopener noreferrer">
+              <a
+                class="row__link"
+                href={row.report.href}
+                target={row.report.external ? '_blank' : undefined}
+                rel={row.report.external ? 'noopener noreferrer' : undefined}
+              >
                 {reportLabel}
               </a>
             )}

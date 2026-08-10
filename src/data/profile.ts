@@ -510,7 +510,10 @@ export type ContestResult = {
   score?: string;
   label?: L;
   standings?: string;
+  /** 外部記事の URL */
   report?: string;
+  /** サイト内の参加記のパス。ロケールは描画時に付ける */
+  reportPath?: string;
 };
 
 export type ContestSeries = {
@@ -546,6 +549,7 @@ export const contestSeries: ContestSeries[] = [
         team: 'chirijako',
         rank: 17,
         standings: 'https://icfpcontest2022.github.io/scoreboard/',
+        reportPath: '/post/2022-09-20',
       },
       {
         year: 2021,
@@ -564,6 +568,7 @@ export const contestSeries: ContestSeries[] = [
         team: 'cirimenjao',
         rank: 35,
         standings: 'https://icfpcontest2019.github.io/rankings/',
+        reportPath: '/post/2019-07-12',
       },
       {
         year: 2018,

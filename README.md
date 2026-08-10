@@ -29,8 +29,10 @@ npm run check    # 型チェック
 ├── src/
 │   ├── components/         # UI コンポーネント
 │   │   └── pages/          # ページ本体（ja/en 共用。locale を prop で受ける）
+│   ├── content/posts/      # ICFP-PC 参加記（Markdown + 画像）
+│   ├── content.config.ts   # 参加記のコレクション定義
 │   ├── data/               # サイトの全コンテンツ（ja/en 併記の構造データ）
-│   │   ├── profile.ts      # 学歴・職歴・スキル・コンテスト参加歴など
+│   │   ├── profile.ts      # 学歴・職歴・スキル・プロダクト・コンテスト参加歴など
 │   │   └── favorite.ts     # 音楽・ライブ参戦歴・文学など
 │   ├── i18n/
 │   │   ├── config.ts       # ロケール定義とパス変換
@@ -48,3 +50,6 @@ npm run check    # 型チェック
 
 ページを追加する場合は `src/components/pages/` に本体を作り、`src/pages/` と
 `src/pages/en/` の両方に `locale` を渡すだけのルートファイルを置く。
+
+ブログとしては運用していないが、ICFP-PC の参加記だけは旧サイトと同じ
+`/post/<日付>/` で残してあり、トップの「コンテストなど」から辿れる。
