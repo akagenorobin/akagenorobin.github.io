@@ -39,8 +39,8 @@ export const works: WorkEntry[] = [
     },
     status: { ja: '開発中', en: 'In development' },
     note: {
-      ja: '人狼ゲームのサービスを開発しています。',
-      en: 'A werewolf (social deduction) game service I am building.',
+      ja: '本格オンラインクロストーク人狼プラットフォームの開発を行っています。',
+      en: 'Building a full-fledged online cross-talk werewolf platform.',
     },
   },
 ];
