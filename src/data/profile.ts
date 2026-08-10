@@ -541,8 +541,8 @@ export const contestSeries: ContestSeries[] = [
   {
     name: 'ICFP-PC',
     description: {
-      ja: '関数型プログラミングの国際学会 ICFP が主催する、チーム人数・言語自由の72時間耐久プログラミングコンテスト。2017年から毎年参加しています。',
-      en: 'A 72-hour programming contest hosted by ICFP, with free choice of team size and language. I have taken part every year since 2017.',
+      ja: '関数型プログラミングの国際学会 ICFP が主催する、チーム人数・言語自由の72時間耐久プログラミングコンテスト。',
+      en: 'A 72-hour programming contest hosted by ICFP, with free choice of team size and language.',
     },
     results: [
       {

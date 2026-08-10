@@ -1,7 +1,7 @@
 ---
 export type ContestRow = {
   year: number;
-  team: string;
+  team?: string;
   rank: number | null;
   rankLabel: string;
   score?: string;
@@ -17,8 +17,9 @@ interface Props {
   standingsLabel: string;
   reportLabel: string;
   entriesLabel: string;
-  bestLabel: string;
-  formatRank: (rank: number) => string;
+  /** 数値の順位がある表だけ「最高 N位」を出す */
+  bestLabel?: string;
+  formatRank?: (rank: number) => string;
 }
 
 const {
@@ -43,7 +44,8 @@ const best = rows.reduce<number | null>((acc, row) => {
     <h3 class="series__name">{name}</h3>
     <p class="series__desc muted">{description}</p>
     <p class="series__meta mono faint">
-      {rows.length} {entriesLabel}{best !== null && <> · {bestLabel} {formatRank(best)}</>}
+      {rows.length} {entriesLabel}
+      {best !== null && bestLabel && formatRank && <> · {bestLabel} {formatRank(best)}</>}
     </p>
   </header>
 
@@ -55,7 +57,7 @@ const best = rows.reduce<number | null>((acc, row) => {
 
           <span class="row__main">
             {row.label && <span class="row__label muted">{row.label}</span>}
-            <span class="row__team mono">{row.team}</span>
+            {row.team && <span class="row__team mono">{row.team}</span>}
             {row.score && <span class="row__score faint mono">{row.score}</span>}
           </span>
 

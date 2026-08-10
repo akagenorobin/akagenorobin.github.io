@@ -3,6 +3,7 @@ import Base from '~/layouts/Base.astro';
 import Section from '~/components/Section.astro';
 import Prose from '~/components/Prose.astro';
 import LiveHistory from '~/components/LiveHistory.astro';
+import ContestTable from '~/components/ContestTable.astro';
 import type { Locale } from '~/i18n/config';
 import { ui } from '~/i18n/ui';
 import {
@@ -12,6 +13,7 @@ import {
   literature,
   music,
   tennis,
+  tennisTournament,
   werewolf,
 } from '~/data/favorite';
 
@@ -64,6 +66,23 @@ const artistBlocks = artists.map((artist) => ({
     <div class="reveal">
       <Prose paragraphs={tennis.body.map((line) => line[locale])} large />
     </div>
+
+    <h3 class="subhead reveal">{ui.sectionTournaments[locale]}</h3>
+    <ContestTable
+      name={tennisTournament.name}
+      description={tennisTournament.description[locale]}
+      standingsLabel={ui.resultsSheet[locale]}
+      reportLabel={ui.report[locale]}
+      entriesLabel={ui.contestEntries[locale]}
+      rows={tennisTournament.results.map((result) => ({
+        year: result.year,
+        rank: null,
+        rankLabel: result.result[locale],
+        label: result.event[locale],
+        standings: result.standings,
+        report: result.report ? { href: result.report, external: true } : undefined,
+      }))}
+    />
   </Section>
 
   <Section id="music" eyebrow={`02 — ${ui.sectionMusic[locale]}`} title={ui.sectionMusic[locale]}>

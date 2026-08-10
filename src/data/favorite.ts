@@ -2,16 +2,56 @@ import type { L } from '~/i18n/config';
 
 export const tennis = {
   body: [
-    {
-      ja: '中学からやっていて、現在は週1程度で活動中です。',
-      en: 'I have played since junior high, and these days I get on court about once a week.',
-    },
+    { ja: '中学からやっています。', en: 'I have played since junior high.' },
     { ja: 'ネットプレーが大好きです。', en: 'I love net play.' },
     {
       ja: 'ストロークは天才的に才能がないです。',
       en: 'My groundstrokes are a work of genuine, prodigious talentlessness.',
     },
   ] satisfies L[],
+};
+
+export type TennisResult = {
+  year: number;
+  event: L;
+  result: L;
+  /** 大会公式の結果表 (PDF) */
+  standings?: string;
+  report?: string;
+};
+
+export const tennisTournament = {
+  name: 'ITS硬式テニス大会',
+  description: {
+    ja: '関東ITソフトウェア健康保険組合が主催する硬式テニスの大会。',
+    en: 'A tennis tournament hosted by the Kanto IT Software Health Insurance Society.',
+  } satisfies L,
+  results: [
+    {
+      year: 2025,
+      event: { ja: '第14回 有栖川公園', en: '14th — Arisugawa Park' },
+      result: { ja: 'ベスト4', en: 'Semifinals' },
+      standings: 'https://www.its-kenpo.or.jp/documents/NEWS/event/kekka/tennis/14fin.pdf',
+    },
+    {
+      year: 2024,
+      event: { ja: '第13回 有栖川公園', en: '13th — Arisugawa Park' },
+      result: { ja: '決勝リーグ', en: 'Final league' },
+      standings: 'https://www.its-kenpo.or.jp/documents/NEWS/event/kekka/tennis/13fin.pdf',
+      report: 'https://note.e-seikatsu.info/n/nd6a9c5090b5b',
+    },
+    {
+      year: 2023,
+      event: { ja: '第12回 有栖川公園', en: '12th — Arisugawa Park' },
+      result: { ja: '予選リーグ', en: 'Group stage' },
+      standings: 'https://www.its-kenpo.or.jp/documents/NEWS/event/kekka/tennis/12a.pdf',
+    },
+    {
+      year: 2020,
+      event: { ja: '第10回 有栖川公園', en: '10th — Arisugawa Park' },
+      result: { ja: '予選リーグ', en: 'Group stage' },
+    },
+  ] satisfies TennisResult[],
 };
 
 export const music = {
