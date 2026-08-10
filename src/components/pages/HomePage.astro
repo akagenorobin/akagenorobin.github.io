@@ -93,10 +93,12 @@ const eyebrow = (id: (typeof sectionOrder)[number], label: string) =>
 const workItems = works.map((work) => ({
   name: work.name[locale],
   url: work.url,
-  icon: work.icon,
-  iconAlt: work.iconAlt[locale],
+  org: work.org[locale],
+  current: work.current,
   status: work.status[locale],
   note: work.note[locale],
+  icon: work.icon,
+  iconAlt: work.iconAlt?.[locale],
 }));
 ---
 
@@ -213,6 +215,7 @@ const workItems = works.map((work) => ({
     id="works"
     eyebrow={eyebrow('works', ui.sectionWorks[locale])}
     title={ui.sectionWorks[locale]}
+    lead={ui.worksLead[locale]}
   >
     <WorkCards items={workItems} />
   </Section>

@@ -2,10 +2,12 @@
 export type WorkCardItem = {
   name: string;
   url: string;
-  icon: string;
-  iconAlt: string;
+  org: string;
+  current: boolean;
   status: string;
   note: string;
+  icon?: string;
+  iconAlt?: string;
 };
 
 interface Props {
@@ -21,19 +23,32 @@ const displayUrl = (url: string) => url.replace(/^https?:\/\//, '').replace(/\/$
   {
     items.map((item) => (
       <li class="reveal">
-        <a class="card work" href={item.url} target="_blank" rel="noopener noreferrer">
-          <img
-            class="work__icon"
-            src={item.icon}
-            alt={item.iconAlt}
-            width="602"
-            height="600"
-            loading="lazy"
-            decoding="async"
-          />
+        <a
+          class:list={['card work', { 'work--past': !item.current }]}
+          href={item.url}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {item.icon && (
+            <img
+              class="work__icon"
+              src={item.icon}
+              alt={item.iconAlt ?? ''}
+              width="602"
+              height="600"
+              loading="lazy"
+              decoding="async"
+            />
+          )}
 
           <div class="work__body">
-            <p class="work__status mono">{item.status}</p>
+            <p class="work__meta">
+              <span class:list={['work__status mono', { 'work__status--past': !item.current }]}>
+                {item.status}
+              </span>
+              <span class="work__org faint">{item.org}</span>
+            </p>
+
             <h3 class="work__name">{item.name}</h3>
             <p class="work__note muted">{item.note}</p>
             <p class="work__url mono faint">
@@ -52,22 +67,30 @@ const displayUrl = (url: string) => url.replace(/^https?:\/\//, '').replace(/\/$
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
     gap: 1rem;
+    align-items: start;
   }
 
-  /* 1枚のときに横へ伸びきらないよう上限を持たせる */
   .work {
     display: grid;
     grid-template-columns: auto minmax(0, 1fr);
     align-items: center;
     gap: 1.25rem;
     height: 100%;
-    max-width: 38rem;
+  }
+
+  /* アイコンを持たないカードは本文だけの1カラムにする */
+  .work:not(:has(.work__icon)) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .work--past {
+    background: transparent;
   }
 
   .work__icon {
-    width: clamp(4.5rem, 12vw, 6rem);
+    width: clamp(4rem, 10vw, 5rem);
     height: auto;
-    border-radius: 18px;
+    border-radius: 16px;
     border: 1px solid var(--border);
   }
 
@@ -77,8 +100,15 @@ const displayUrl = (url: string) => url.replace(/^https?:\/\//, '').replace(/\/$
     gap: 0.25rem;
   }
 
+  .work__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.15rem;
+  }
+
   .work__status {
-    align-self: flex-start;
     padding: 0.15rem 0.55rem;
     font-size: 0.66rem;
     font-weight: 600;
@@ -89,20 +119,29 @@ const displayUrl = (url: string) => url.replace(/^https?:\/\//, '').replace(/\/$
     border-radius: 999px;
   }
 
+  .work__status--past {
+    color: var(--text-faint);
+    border-color: var(--border-strong);
+  }
+
+  .work__org {
+    font-size: 0.76rem;
+  }
+
   .work__name {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
   }
 
   .work__note {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
   }
 
   .work__url {
     display: flex;
     align-items: center;
     gap: 0.3rem;
-    margin-top: 0.15rem;
-    font-size: 0.76rem;
+    margin-top: 0.3rem;
+    font-size: 0.74rem;
   }
 
   .work__arrow {
@@ -116,7 +155,7 @@ const displayUrl = (url: string) => url.replace(/^https?:\/\//, '').replace(/\/$
 
   @media (max-width: 30rem) {
     .work {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
       gap: 1rem;
     }
   }

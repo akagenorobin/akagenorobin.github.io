@@ -22,25 +22,66 @@ export const profile = {
 export type WorkEntry = {
   name: L;
   url: string;
-  icon: string;
-  iconAlt: L;
+  org: L;
+  /** 現在関わっているものは強調して先に出す */
+  current: boolean;
   status: L;
   note: L;
+  icon?: string;
+  iconAlt?: L;
 };
 
 export const works: WorkEntry[] = [
   {
+    name: { ja: 'Qast', en: 'Qast' },
+    url: 'https://qast.jp/',
+    org: { ja: 'any株式会社', en: 'any, inc.' },
+    current: true,
+    status: { ja: '開発中', en: 'In development' },
+    note: {
+      ja: '社内に散在する情報や属人化したノウハウを生成 AI で集約し、チャットで引き出せる AI ナレッジプラットフォーム。',
+      en: 'An AI knowledge platform that consolidates information and know-how scattered across a company, and surfaces it through chat.',
+    },
+  },
+  {
     name: { ja: 'あかげの人狼', en: 'あかげの人狼 (Akage no Jinro)' },
     url: 'https://akagenojinro.com',
+    org: { ja: '個人開発', en: 'Personal project' },
+    current: true,
+    status: { ja: '開発中', en: 'In development' },
+    note: {
+      ja: '本格オンラインクロストーク人狼プラットフォームの開発を行っています。',
+      en: 'Building a full-fledged online cross-talk werewolf platform.',
+    },
     icon: '/img/akagenojinro.png',
     iconAlt: {
       ja: 'あかげの人狼のアイコン',
       en: 'The あかげの人狼 icon',
     },
-    status: { ja: '開発中', en: 'In development' },
+  },
+  {
+    name: { ja: 'いい生活Square', en: 'e-Seikatsu Square' },
+    url: 'https://www.es-service.net/service/square/',
+    org: { ja: '株式会社いい生活', en: 'e-Seikatsu Co., Ltd.' },
+    current: false,
+    status: { ja: '過去に開発', en: 'Past work' },
     note: {
-      ja: '本格オンラインクロストーク人狼プラットフォームの開発を行っています。',
-      en: 'Building a full-fledged online cross-talk werewolf platform.',
+      ja: '全国の不動産管理会社と賃貸仲介会社をつなぐ賃貸業者間流通サイト。空室募集から内見予約・入居申込・賃貸管理までを一元化する。',
+      en: 'A B2B property distribution site connecting management and brokerage companies nationwide, unifying vacancy listings, viewing reservations, applications, and rental management.',
+    },
+  },
+  {
+    name: {
+      ja: 'いい生活賃貸クラウド 営業支援',
+      en: 'e-Seikatsu Rental Cloud — Sales Support',
+    },
+    url: 'https://www.es-service.net/service/sales-support/',
+    org: { ja: '株式会社いい生活', en: 'e-Seikatsu Co., Ltd.' },
+    current: false,
+    status: { ja: '過去に開発', en: 'Past work' },
+    note: {
+      ja: 'ポータルサイトからの反響を自動で取り込み、メール・LINE・SMS などのチャネルを1画面で扱う、不動産会社向けの顧客管理・営業支援システム (CRM)。',
+      en: 'A CRM for real-estate companies: it imports leads from portal sites automatically and handles email, LINE, and SMS in a single view.',
     },
   },
 ];
