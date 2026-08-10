@@ -39,9 +39,11 @@ export const works: WorkEntry[] = [
     current: true,
     status: { ja: '開発中', en: 'In development' },
     note: {
-      ja: '社内に散在する情報や属人化したノウハウを生成 AI で集約し、チャットで引き出せる AI ナレッジプラットフォーム。',
-      en: 'An AI knowledge platform that consolidates information and know-how scattered across a company, and surfaces it through chat.',
+      ja: '社内に埋もれる個人の知識や経験を引き出し、業務の効率化と企業価値の向上を実現する AI ナレッジプラットフォーム。',
+      en: 'An AI knowledge platform that draws out the knowledge and experience buried in individuals, improving day-to-day efficiency and the value of the company.',
     },
+    icon: '/img/qast.png',
+    iconAlt: { ja: 'Qast のロゴ', en: 'The Qast logo' },
   },
   {
     name: { ja: 'あかげの人狼', en: 'あかげの人狼 (Akage no Jinro)' },
@@ -69,6 +71,8 @@ export const works: WorkEntry[] = [
       ja: '全国の不動産管理会社と賃貸仲介会社をつなぐ賃貸業者間流通サイト。空室募集から内見予約・入居申込・賃貸管理までを一元化する。',
       en: 'A B2B property distribution site connecting management and brokerage companies nationwide, unifying vacancy listings, viewing reservations, applications, and rental management.',
     },
+    icon: '/img/e-seikatsu-square.svg',
+    iconAlt: { ja: 'いい生活Square のロゴ', en: 'The e-Seikatsu Square logo' },
   },
   {
     name: {
@@ -82,6 +86,11 @@ export const works: WorkEntry[] = [
     note: {
       ja: 'ポータルサイトからの反響を自動で取り込み、メール・LINE・SMS などのチャネルを1画面で扱う、不動産会社向けの顧客管理・営業支援システム (CRM)。',
       en: 'A CRM for real-estate companies: it imports leads from portal sites automatically and handles email, LINE, and SMS in a single view.',
+    },
+    icon: '/img/e-seikatsu-sales-support.svg',
+    iconAlt: {
+      ja: 'いい生活賃貸クラウド 営業支援のロゴ',
+      en: 'The e-Seikatsu Rental Cloud Sales Support logo',
     },
   },
 ];

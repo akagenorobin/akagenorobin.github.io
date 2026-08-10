@@ -34,8 +34,8 @@ const displayUrl = (url: string) => url.replace(/^https?:\/\//, '').replace(/\/$
               class="work__icon"
               src={item.icon}
               alt={item.iconAlt ?? ''}
-              width="602"
-              height="600"
+              width="120"
+              height="120"
               loading="lazy"
               decoding="async"
             />
@@ -87,9 +87,13 @@ const displayUrl = (url: string) => url.replace(/^https?:\/\//, '').replace(/\/$
     background: transparent;
   }
 
+  /* ロゴは透過 PNG / SVG なので、ブランド色が沈まないよう白いタイルに載せる */
   .work__icon {
     width: clamp(4rem, 10vw, 5rem);
     height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    background: #fff;
     border-radius: 16px;
     border: 1px solid var(--border);
   }
