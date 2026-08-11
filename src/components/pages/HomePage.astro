@@ -13,7 +13,6 @@ import { ui } from '~/i18n/ui';
 import {
   articles,
   career,
-  contestProfiles,
   contestSeries,
   education,
   likes,
@@ -175,18 +174,6 @@ const workItems = works.map((work) => ({
     eyebrow={eyebrow('contests', ui.sectionContests[locale])}
     title={ui.sectionContests[locale]}
   >
-    <ul class="chips profiles reveal">
-      {
-        contestProfiles.map((entry) => (
-          <li>
-            <a class="chip" href={entry.url} target="_blank" rel="noopener noreferrer">
-              {entry.site} / {entry.handle} ↗
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-
     {
       contestSeries.map((series) => (
         <ContestTable
@@ -280,10 +267,6 @@ const workItems = works.map((work) => ({
   .stack-card__title {
     font-size: 0.85rem;
     letter-spacing: 0.08em;
-  }
-
-  .profiles {
-    margin-bottom: 2.5rem;
   }
 
   .explore__card {

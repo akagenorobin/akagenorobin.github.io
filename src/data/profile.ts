@@ -16,6 +16,11 @@ export const profile = {
     { label: 'Instagram', url: 'https://www.instagram.com/akagenorobin', handle: '@akagenorobin' },
     { label: 'GitLab', url: 'https://gitlab.com/akagenorobin', handle: '@akagenorobin' },
     { label: 'AtCoder', url: 'https://atcoder.jp/users/akagenorobin', handle: '@akagenorobin' },
+    {
+      label: 'TopCoder',
+      url: 'https://profiles.topcoder.com/akagenorobin',
+      handle: '@akagenorobin',
+    },
     { label: 'YOUTRUST', url: 'https://youtrust.jp/users/akagenorobin', handle: '@akagenorobin' },
   ],
 };
@@ -504,17 +509,6 @@ export const articles: ArticleEntry[] = [
     year: 2017,
     unavailable: true,
   },
-];
-
-export type ContestProfile = {
-  site: string;
-  url: string;
-  handle: string;
-};
-
-export const contestProfiles: ContestProfile[] = [
-  { site: 'AtCoder', url: 'https://atcoder.jp/users/akagenorobin', handle: 'akagenorobin' },
-  { site: 'TopCoder', url: 'https://profiles.topcoder.com/akagenorobin', handle: 'akagenorobin' },
 ];
 
 export type ContestResult = {
