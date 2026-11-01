@@ -72,7 +72,7 @@ const formatRank = (rank: number): string => (locale === 'ja' ? `${rank}位` : `
 const rankLabel = (rank: number | null, teams?: number): string => {
   if (rank === null) return ui.disqualified[locale];
   if (teams === undefined) return formatRank(rank);
-  return locale === 'ja' ? `${teams}チーム中 ${rank}位` : `#${rank} of ${teams}`;
+  return locale === 'ja' ? `${rank}位 / ${teams}チーム` : `#${rank} / ${teams} teams`;
 };
 
 const currentLabel = locale === 'ja' ? '現職' : 'Current';

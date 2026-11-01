@@ -61,7 +61,7 @@ const best = rows.reduce<number | null>((acc, row) => {
             {row.score && <span class="row__score faint mono">{row.score}</span>}
           </span>
 
-          <span class:list={['row__rank mono', { 'row__rank--top': row.rank !== null && row.rank <= 20 }]}>
+          <span class="row__rank mono">
             {row.rankLabel}
           </span>
 
@@ -172,10 +172,6 @@ const best = rows.reduce<number | null>((acc, row) => {
     font-variant-numeric: tabular-nums;
     white-space: nowrap;
     text-align: right;
-  }
-
-  .row__rank--top {
-    color: var(--accent-2);
   }
 
   .row__links {
