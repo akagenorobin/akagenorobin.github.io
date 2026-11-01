@@ -69,8 +69,11 @@ const otherItems = others.map((entry) => ({
 }));
 
 const formatRank = (rank: number): string => (locale === 'ja' ? `${rank}位` : `#${rank}`);
-const rankLabel = (rank: number | null): string =>
-  rank === null ? ui.disqualified[locale] : formatRank(rank);
+const rankLabel = (rank: number | null, teams?: number): string => {
+  if (rank === null) return ui.disqualified[locale];
+  if (teams === undefined) return formatRank(rank);
+  return locale === 'ja' ? `${teams}チーム中 ${rank}位` : `#${rank} of ${teams}`;
+};
 
 const currentLabel = locale === 'ja' ? '現職' : 'Current';
 
@@ -188,7 +191,7 @@ const workItems = works.map((work) => ({
             year: result.year,
             team: result.team,
             rank: result.rank,
-            rankLabel: rankLabel(result.rank),
+            rankLabel: rankLabel(result.rank, result.teams),
             score: result.score,
             label: result.label?.[locale],
             standings: result.standings,

@@ -516,6 +516,8 @@ export type ContestResult = {
   team: string;
   /** 順位。失格の場合は null */
   rank: number | null;
+  /** 得点がゼロのチームを除いた出場チーム数 */
+  teams?: number;
   score?: string;
   label?: L;
   standings?: string;
@@ -543,20 +545,29 @@ export const contestSeries: ContestSeries[] = [
         year: 2025,
         team: 'chirijako',
         rank: 27,
+        teams: 141,
         standings: 'https://icfpcontest2025.github.io/aedificium.html',
       },
       {
         year: 2024,
         team: 'chirijako',
         rank: 21,
+        teams: 355,
         standings: 'https://icfpcontest2024.github.io/scoreboard.html',
         report: 'https://note.e-seikatsu.info/n/n141f15f1010c',
       },
-      { year: 2023, team: 'chirijako', rank: 15, standings: 'https://icfpcontest2023.github.io/' },
+      {
+        year: 2023,
+        team: 'chirijako',
+        rank: 15,
+        teams: 158,
+        standings: 'https://icfpcontest2023.github.io/',
+      },
       {
         year: 2022,
         team: 'chirijako',
         rank: 17,
+        teams: 151,
         standings: 'https://icfpcontest2022.github.io/scoreboard/',
         reportPath: '/post/2022-09-20',
       },
@@ -564,18 +575,21 @@ export const contestSeries: ContestSeries[] = [
         year: 2021,
         team: 'chirijako',
         rank: 6,
+        teams: 160,
         standings: 'https://icfpcontest2021.github.io/scoreboard.html',
       },
       {
         year: 2020,
         team: 'cirijako',
         rank: 35,
+        teams: 95,
         standings: 'https://icfpcontest2020.github.io/#/scoreboard#final',
       },
       {
         year: 2019,
         team: 'cirimenjao',
         rank: 35,
+        teams: 142,
         standings: 'https://icfpcontest2019.github.io/rankings/',
         reportPath: '/post/2019-07-12',
       },
@@ -583,6 +597,7 @@ export const contestSeries: ContestSeries[] = [
         year: 2018,
         team: 'chirimenjako',
         rank: 15,
+        teams: 107,
         standings: 'https://icfpcontest2018.github.io/full/final-standings.html',
       },
       {
@@ -604,6 +619,7 @@ export const contestSeries: ContestSeries[] = [
         year: 2023,
         team: '忖度',
         rank: 361,
+        teams: 506,
         score: '6,667',
         label: { ja: 'ISUCON 13 本選', en: 'ISUCON 13 Finals' },
         standings: 'https://isucon.net/archives/57993937.html',
@@ -612,6 +628,7 @@ export const contestSeries: ContestSeries[] = [
         year: 2021,
         team: 'newton-kun',
         rank: 272,
+        teams: 452,
         score: '13,616',
         label: { ja: 'ISUCON 11 予選', en: 'ISUCON 11 Qualifiers' },
         standings: 'https://isucon.net/archives/56021246.html',
@@ -620,6 +637,7 @@ export const contestSeries: ContestSeries[] = [
         year: 2020,
         team: 'aimai-chan',
         rank: 355,
+        teams: 392,
         score: '478',
         label: { ja: 'ISUCON 10 予選', en: 'ISUCON 10 Qualifiers' },
         standings: 'https://isucon.net/archives/55008744.html',
@@ -628,6 +646,7 @@ export const contestSeries: ContestSeries[] = [
         year: 2019,
         team: 'avogad-chan',
         rank: 222,
+        teams: 431,
         score: '3,710',
         label: { ja: 'ISUCON 9 予選', en: 'ISUCON 9 Qualifiers' },
         standings: 'https://isucon.net/archives/53789925.html',
@@ -636,6 +655,7 @@ export const contestSeries: ContestSeries[] = [
         year: 2018,
         team: 'chirimenjako--',
         rank: 99,
+        teams: 254,
         score: '10,129',
         label: { ja: 'ISUCON 8 予選', en: 'ISUCON 8 Qualifiers' },
         standings: 'https://isucon.net/archives/52467371.html',
@@ -653,6 +673,7 @@ export const contestSeries: ContestSeries[] = [
         year: 2025,
         team: 'いっちぃ勉強会--',
         rank: 87,
+        teams: 142,
         score: '2,034,377,576',
         label: { ja: '第二回マスターズ選手権 予選', en: '2nd Masters Championship, Qualifiers' },
         standings: 'https://atcoder.jp/contests/masters2025-qual/standings/team',
@@ -661,6 +682,7 @@ export const contestSeries: ContestSeries[] = [
         year: 2024,
         team: 'いっちぃ勉強会--',
         rank: 84,
+        teams: 182,
         score: '487,331,447',
         label: { ja: '第一回マスターズ選手権 予選', en: '1st Masters Championship, Qualifiers' },
         standings: 'https://atcoder.jp/contests/masters-qual/standings/team',
