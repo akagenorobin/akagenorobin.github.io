@@ -282,6 +282,10 @@ export const skillGroups: SkillGroup[] = [
     items: ['Flask', 'Celery', 'SQLAlchemy'],
   },
   {
+    category: { ja: 'Ruby', en: 'Ruby' },
+    items: ['Rails'],
+  },
+  {
     category: { ja: 'TypeScript', en: 'TypeScript' },
     items: ['React', 'Next.js', 'NestJS'],
   },
