@@ -628,6 +628,7 @@ export const contestSeries: ContestSeries[] = [
         score: '95,024',
         label: { ja: 'ISUCON2026', en: 'ISUCON2026' },
         standings: 'https://isucon.net/archives/60126600.html',
+        reportPath: '/post/2026-11-03',
       },
       {
         year: 2023,
