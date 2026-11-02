@@ -2,7 +2,6 @@
 export type ContestRow = {
   year: number;
   team?: string;
-  rank: number | null;
   rankLabel: string;
   score?: string;
   label?: string;
@@ -16,10 +15,6 @@ interface Props {
   rows: ContestRow[];
   standingsLabel: string;
   reportLabel: string;
-  entriesLabel: string;
-  /** 数値の順位がある表だけ「最高 N位」を出す */
-  bestLabel?: string;
-  formatRank?: (rank: number) => string;
 }
 
 const {
@@ -28,25 +23,13 @@ const {
   rows,
   standingsLabel,
   reportLabel,
-  entriesLabel,
-  bestLabel,
-  formatRank,
 } = Astro.props;
-
-const best = rows.reduce<number | null>((acc, row) => {
-  if (row.rank === null) return acc;
-  return acc === null || row.rank < acc ? row.rank : acc;
-}, null);
 ---
 
 <article class="series reveal">
   <header class="series__head">
     <h3 class="series__name">{name}</h3>
     <p class="series__desc muted">{description}</p>
-    <p class="series__meta mono faint">
-      {rows.length} {entriesLabel}
-      {best !== null && bestLabel && formatRank && <> · {bestLabel} {formatRank(best)}</>}
-    </p>
   </header>
 
   <ol class="rows">
@@ -107,12 +90,6 @@ const best = rows.reduce<number | null>((acc, row) => {
   .series__desc {
     max-width: 44rem;
     font-size: 0.9rem;
-  }
-
-  .series__meta {
-    font-size: 0.72rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
   }
 
   /* 列幅は表全体で共有する。行ごとに grid を張ると、

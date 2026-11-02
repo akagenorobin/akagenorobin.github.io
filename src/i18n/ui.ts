@@ -67,8 +67,6 @@ export const ui = {
   report: { ja: '参加記', en: 'Write-up' },
   sectionTournaments: { ja: '大会参加歴', en: 'Tournaments' },
   disqualified: { ja: '失格', en: 'Disqualified' },
-  contestEntries: { ja: '回参加', en: 'entries' },
-  contestBest: { ja: '最高', en: 'best' },
 
   builtWith: { ja: 'Built with Astro', en: 'Built with Astro' },
 } satisfies Record<string, L>;

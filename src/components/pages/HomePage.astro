@@ -184,13 +184,9 @@ const workItems = works.map((work) => ({
           description={series.description[locale]}
           standingsLabel={ui.standings[locale]}
           reportLabel={ui.report[locale]}
-          entriesLabel={ui.contestEntries[locale]}
-          bestLabel={ui.contestBest[locale]}
-          formatRank={formatRank}
           rows={series.results.map((result) => ({
             year: result.year,
             team: result.team,
-            rank: result.rank,
             rankLabel: rankLabel(result.rank, result.teams),
             score: result.score,
             label: result.label?.[locale],

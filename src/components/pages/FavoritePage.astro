@@ -73,10 +73,8 @@ const artistBlocks = artists.map((artist) => ({
       description={tennisTournament.description[locale]}
       standingsLabel={ui.resultsSheet[locale]}
       reportLabel={ui.report[locale]}
-      entriesLabel={ui.contestEntries[locale]}
       rows={tennisTournament.results.map((result) => ({
         year: result.year,
-        rank: null,
         rankLabel: result.result[locale],
         label: result.edition[locale],
         team: result.team,

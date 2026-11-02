@@ -5,7 +5,9 @@ date: 2026-11-03
 
 [ISUCON2026](https://isucon.net/) にチーム any。で参加しました。  
 
-メンバーは any の同僚 [ad-sho-loko](https://github.com/ad-sho-loko) と [yasu-wb](https://github.com/yasu-wb) です。ウェブエンジニアとしてとても優秀でいつも頼りにしてますが、 ISUCON には参加したことがないという状態でした。僕は2018年から5回 ISUCON には参加しており、同僚にも面白さを伝えたかったので、是非出ましょう！という感じで誘いました。
+メンバーは any の同僚 [ad-sho-loko](https://github.com/ad-sho-loko) と [yasu-wb](https://github.com/yasu-wb) です。ウェブエンジニアとしてとても優秀でいつも頼りにしてますが、 ISUCON には参加したことがないという状態でした。
+
+僕は2018年から5回 ISUCON には参加しており、同僚にも面白さを伝えたかったので、是非出ましょう！という感じで誘いました。
 
 ## 事前準備
 
