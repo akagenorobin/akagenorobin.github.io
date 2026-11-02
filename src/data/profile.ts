@@ -541,8 +541,8 @@ export const contestSeries: ContestSeries[] = [
   {
     name: 'ICFP-PC',
     description: {
-      ja: '関数型プログラミングの国際学会 ICFP が主催する、チーム人数・言語自由の72時間耐久プログラミングコンテスト。',
-      en: 'A 72-hour programming contest hosted by ICFP, with free choice of team size and language.',
+      ja: '関数型プログラミングの国際学会 ICFP が主催する何でもありの72時間耐久コンテスト。',
+      en: 'An anything-goes 72-hour endurance contest hosted by ICFP, the international conference on functional programming.',
     },
     results: [
       {
@@ -616,8 +616,8 @@ export const contestSeries: ContestSeries[] = [
   {
     name: 'ISUCON',
     description: {
-      ja: 'お題となる Web サービスを限界まで高速化する、いわゆるチューニングバトル。',
-      en: 'A tuning battle: squeeze as much speed as possible out of a given web service.',
+      ja: 'お題となる Web サービスをいい感じにスピードアップするコンテスト。',
+      en: 'A contest to speed up a given web service as nicely as you can.',
     },
     results: [
       {
