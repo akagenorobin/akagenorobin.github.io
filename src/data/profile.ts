@@ -608,6 +608,7 @@ export const contestSeries: ContestSeries[] = [
         year: 2017,
         team: 'chirimenjako',
         rank: null,
+        teams: 120,
         standings: 'https://icfpcontest2017.github.io/post/full-one/',
       },
     ],

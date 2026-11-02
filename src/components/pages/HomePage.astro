@@ -70,9 +70,9 @@ const otherItems = others.map((entry) => ({
 
 const formatRank = (rank: number): string => (locale === 'ja' ? `${rank}位` : `#${rank}`);
 const rankLabel = (rank: number | null, teams?: number): string => {
-  if (rank === null) return ui.disqualified[locale];
-  if (teams === undefined) return formatRank(rank);
-  return locale === 'ja' ? `${rank}位 / ${teams}チーム` : `#${rank} / ${teams} teams`;
+  const label = rank === null ? ui.disqualified[locale] : formatRank(rank);
+  if (teams === undefined) return label;
+  return locale === 'ja' ? `${label} / ${teams}チーム` : `${label} / ${teams} teams`;
 };
 
 const currentLabel = locale === 'ja' ? '現職' : 'Current';
