@@ -1,5 +1,5 @@
 ---
-title: "チームany。: ISUCON2026 参加記"
+title: ISUCON2026 参加記（チーム any。）
 date: 2026-11-03
 ---
 

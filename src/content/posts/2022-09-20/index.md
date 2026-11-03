@@ -1,5 +1,5 @@
 ---
-title: "チームchirijako: ICFP-PC2022 参加記"
+title: ICFP-PC2022 参加記（チーム chirijako）
 date: 2022-09-20
 ---
 

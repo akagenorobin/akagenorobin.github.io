@@ -1,5 +1,5 @@
 ---
-title: "チームcirimenjao: ICFP-PC2019 参加記"
+title: ICFP-PC2019 参加記（チーム cirimenjao）
 date: 2019-07-12
 ---
 
