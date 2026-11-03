@@ -27,6 +27,9 @@ const description = post.body
   .map((line) => line.trim())
   .find((line) => line.length > 0)
   ?.slice(0, 120);
+
+// 「参加記」や括弧書きのチーム名の途中で改行されないよう、句ごとに折り返しを禁止する
+const titlePhrases = post.data.title.split(/(?=（)/);
 ---
 
 <Base
@@ -45,7 +48,9 @@ const description = post.body
       <time class="post__date mono faint" datetime={post.data.date.toISOString()}>
         {formattedDate}
       </time>
-      <h1 class="post__title" lang="ja">{post.data.title}</h1>
+      <h1 class="post__title" lang="ja">
+        {titlePhrases.map((phrase) => <span class="post__title-phrase">{phrase}</span>)}
+      </h1>
       {
         locale === 'en' && (
           <p class="post__notice">This article is written in Japanese.</p>
@@ -90,8 +95,14 @@ const description = post.body
   }
 
   .post__title {
-    font-size: clamp(1.8rem, 5vw, 2.75rem);
+    font-size: clamp(1.5rem, 4vw, 2rem);
     letter-spacing: -0.03em;
+    /* 行頭に来た全角括弧の空きを詰める */
+    text-spacing-trim: trim-start;
+  }
+
+  .post__title-phrase {
+    display: inline-block;
   }
 
   .post__notice {
