@@ -88,6 +88,23 @@ const ogImage = {
         root.dataset.js = 'true';
       })();
     </script>
+
+    <!-- 開発サーバーでの閲覧を計測に混ぜないため本番ビルドだけに入れる -->
+    {
+      import.meta.env.PROD && (
+        <>
+          <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-EDWGH20LXB" />
+          <script is:inline>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+              dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+            gtag('config', 'G-EDWGH20LXB');
+          </script>
+        </>
+      )
+    }
   </head>
 
   <body>
